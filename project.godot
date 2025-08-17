@@ -12,8 +12,12 @@ config_version=5
 
 config/name="drag-crops"
 run/main_scene="uid://7salw3s751xe"
-config/features=PackedStringArray("4.4", "Forward Plus")
+config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Audio="*res://autoload/Audio.cs"
 
 [display]
 

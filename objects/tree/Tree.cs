@@ -2,11 +2,15 @@ using Godot;
 
 public partial class Tree : Area2D
 {
-    [Export]
-    public int Hp { get; set; } = 10;
+    [Export] public int Hp { get; set; } = 10;
+    [Export] public AudioStream ChopTreeAudio;
+    [Export] public AudioStream FallTreeAudio;
+
+    private Audio _audio;
 
     public override void _Ready()
     {
+        _audio = GetNode<Audio>("/root/Audio");
     }
 
     public override void _Process(double delta)
@@ -19,7 +23,13 @@ public partial class Tree : Area2D
 
         if (Hp <= 0)
         {
+            _audio.PlaySound(ChopTreeAudio, GD.RandRange(0.8, 1.1));
+            GD.Print("Tree hit!");
             QueueFree();
+        }
+        else
+        {
+            _audio.PlaySound(ChopTreeAudio, GD.RandRange(0.8, 1.1));
         }
     }
 
