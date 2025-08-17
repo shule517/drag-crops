@@ -1,3 +1,4 @@
+using dragcrops.extenstions;
 using Godot;
 
 public partial class Tree : Area2D
@@ -8,6 +9,7 @@ public partial class Tree : Area2D
 
     private Audio _audio;
     private AnimatedSprite2D _animatedSprite2D;
+    private static readonly PackedScene ItemScene = GD.Load<PackedScene>("res://items/item/item.tscn");
 
     public override void _Ready()
     {
@@ -35,12 +37,21 @@ public partial class Tree : Area2D
         {
             _audio.PlaySound(ChopTreeAudio, GD.RandRange(0.8, 1.1));
             GD.Print("Tree hit!");
+            5.Times(() => DropItem());
             QueueFree();
         }
         else
         {
             _audio.PlaySound(ChopTreeAudio, GD.RandRange(0.8, 1.1));
         }
+    }
+
+    // TODO: 別クラスに移動させる
+    private void DropItem()
+    {
+        var item = ItemScene.Instantiate<Node2D>();
+        item.GlobalPosition = new Vector2(GlobalPosition.X + GD.RandRange(-10, 10), GlobalPosition.Y - 7);
+        GetParent<Node>().AddChild(item);
     }
 
     public override void _InputEvent(Viewport viewport, InputEvent @event, int shapeIdx)
