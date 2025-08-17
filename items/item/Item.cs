@@ -3,8 +3,12 @@ using System;
 
 public partial class Item : CharacterBody2D
 {
+    [Export] public AudioStream GetItemAudio;
+
     private float _groundY;
     private float _bouncePower = -200; // 最初のバウンド力
+    private Area2D _area2D;
+    private bool _isDroped = false;
 
     public override void _Ready()
     {
@@ -12,6 +16,17 @@ public partial class Item : CharacterBody2D
 
         // 左右にバラける, 上に飛ばす
         Velocity = new Vector2(GD.RandRange(-50, 50), -200);
+        _area2D = GetNode<Area2D>("Area2D");
+
+        // マウスホバーでアイテムGET
+        _area2D.MouseEntered += () =>
+        {
+            if (_isDroped)
+            {
+                Audio.Instance.PlaySound(GetItemAudio, GD.RandRange(0.8, 1.1));
+                QueueFree();
+            }
+        };
     }
 
     public override void _PhysicsProcess(double delta)
@@ -24,7 +39,11 @@ public partial class Item : CharacterBody2D
             Position = Position with { Y = _groundY };
             Velocity = Velocity with { Y = Velocity.Y * -0.6f };
 
-            if (Math.Abs(Velocity.Y) < 100) Velocity = Velocity with { Y = 0 };
+            if (Math.Abs(Velocity.Y) < 100)
+            {
+                Velocity = Velocity with { X = 0, Y = 0 };
+                _isDroped = true;
+            }
         }
         MoveAndSlide();
     }

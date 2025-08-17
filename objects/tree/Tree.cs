@@ -35,9 +35,9 @@ public partial class Tree : Area2D
 
         if (Hp <= 0)
         {
+            // 木が倒れた
             _audio.PlaySound(ChopTreeAudio, GD.RandRange(0.8, 1.1));
-            GD.Print("Tree hit!");
-            5.Times(() => DropItem());
+            GD.RandRange(3, 10).Times(() => DropItem());
             QueueFree();
         }
         else
