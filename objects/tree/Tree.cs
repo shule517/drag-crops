@@ -11,11 +11,11 @@ public partial class Tree : Area2D
 
     public override void _Ready()
     {
+        _audio = Audio.Instance;
+        _animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+
         MouseEntered += () => SetIsSeleted(true);
         MouseExited += () => SetIsSeleted(false);
-
-        _audio = GetNode<Audio>("/root/Audio");
-        _animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
     }
 
     public override void _Process(double delta)

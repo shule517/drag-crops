@@ -3,6 +3,9 @@ using System;
 
 public partial class Audio : Node
 {
+    static public SceneTree Tree => Engine.GetMainLoop() as SceneTree;
+    static public Audio Instance => Tree.Root.GetNode<Audio>("/root/Audio");
+
     public void PlaySound(AudioStream audioStream, double pitchScale = 1.0f)
     {
         var audioPlayer = new AudioStreamPlayer2D();
