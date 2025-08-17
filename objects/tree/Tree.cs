@@ -24,7 +24,7 @@ public partial class Tree : Area2D
 
     private void SetIsSeleted(bool isSelected)
     {
-        (_animatedSprite2D.Material as ShaderMaterial).SetShaderParameter("is_selected", isSelected);
+        _animatedSprite2D.SetShaderParameter("is_selected", isSelected);
     }
 
     private void Damage(int damage)
