@@ -14,15 +14,15 @@ public partial class Tree : Area2D
         _audio = Audio.Instance;
         _animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 
-        MouseEntered += () => SetIsSeleted(true);
-        MouseExited += () => SetIsSeleted(false);
+        MouseEntered += () => SetSharderParamIsSeleted(true);
+        MouseExited += () => SetSharderParamIsSeleted(false);
     }
 
     public override void _Process(double delta)
     {
     }
 
-    private void SetIsSeleted(bool isSelected)
+    private void SetSharderParamIsSeleted(bool isSelected)
     {
         _animatedSprite2D.SetShaderParameter("is_selected", isSelected);
     }
