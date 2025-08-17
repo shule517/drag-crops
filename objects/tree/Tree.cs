@@ -7,14 +7,24 @@ public partial class Tree : Area2D
     [Export] public AudioStream FallTreeAudio;
 
     private Audio _audio;
+    private AnimatedSprite2D _animatedSprite2D;
 
     public override void _Ready()
     {
+        MouseEntered += () => SetIsSeleted(true);
+        MouseExited += () => SetIsSeleted(false);
+
         _audio = GetNode<Audio>("/root/Audio");
+        _animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
     }
 
     public override void _Process(double delta)
     {
+    }
+
+    private void SetIsSeleted(bool isSelected)
+    {
+        (_animatedSprite2D.Material as ShaderMaterial).SetShaderParameter("is_selected", isSelected);
     }
 
     private void Damage(int damage)
