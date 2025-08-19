@@ -98,3 +98,111 @@ position = Vector2(55, 65)
 
 [node name="Tree12" parent="." instance=ExtResource("2_pkv70")]
 position = Vector2(64, 85)
+
+[node name="Tree13" parent="." instance=ExtResource("2_pkv70")]
+position = Vector2(235, 42)
+
+[node name="Tree14" parent="." instance=ExtResource("2_pkv70")]
+position = Vector2(262, 41)
+
+[node name="Tree15" parent="." instance=ExtResource("2_pkv70")]
+position = Vector2(290, 41)
+
+[node name="Tree16" parent="." instance=ExtResource("2_pkv70")]
+position = Vector2(321, 41)
+
+[node name="Tree17" parent="." instance=ExtResource("2_pkv70")]
+position = Vector2(345, 41)
+
+[node name="Tree18" parent="." instance=ExtResource("2_pkv70")]
+position = Vector2(343, 76)
+
+[node name="Tree19" parent="." instance=ExtResource("2_pkv70")]
+position = Vector2(313, 75)
+
+[node name="Tree20" parent="." instance=ExtResource("2_pkv70")]
+position = Vector2(290, 69)
+
+[node name="Tree21" parent="." instance=ExtResource("2_pkv70")]
+position = Vector2(265, 65)
+
+[node name="Tree22" parent="." instance=ExtResource("2_pkv70")]
+position = Vector2(234, 64)
+
+[node name="Tree23" parent="." instance=ExtResource("2_pkv70")]
+position = Vector2(211, 64)
+
+[node name="Tree24" parent="." instance=ExtResource("2_pkv70")]
+position = Vector2(220, 84)
+
+[node name="Tree25" parent="." instance=ExtResource("2_pkv70")]
+position = Vector2(87, 94)
+
+[node name="Tree26" parent="." instance=ExtResource("2_pkv70")]
+position = Vector2(114, 93)
+
+[node name="Tree27" parent="." instance=ExtResource("2_pkv70")]
+position = Vector2(142, 93)
+
+[node name="Tree28" parent="." instance=ExtResource("2_pkv70")]
+position = Vector2(173, 93)
+
+[node name="Tree29" parent="." instance=ExtResource("2_pkv70")]
+position = Vector2(197, 93)
+
+[node name="Tree30" parent="." instance=ExtResource("2_pkv70")]
+position = Vector2(195, 128)
+
+[node name="Tree31" parent="." instance=ExtResource("2_pkv70")]
+position = Vector2(165, 127)
+
+[node name="Tree32" parent="." instance=ExtResource("2_pkv70")]
+position = Vector2(142, 121)
+
+[node name="Tree33" parent="." instance=ExtResource("2_pkv70")]
+position = Vector2(117, 117)
+
+[node name="Tree34" parent="." instance=ExtResource("2_pkv70")]
+position = Vector2(86, 116)
+
+[node name="Tree35" parent="." instance=ExtResource("2_pkv70")]
+position = Vector2(63, 116)
+
+[node name="Tree36" parent="." instance=ExtResource("2_pkv70")]
+position = Vector2(72, 136)
+
+[node name="Tree37" parent="." instance=ExtResource("2_pkv70")]
+position = Vector2(243, 93)
+
+[node name="Tree38" parent="." instance=ExtResource("2_pkv70")]
+position = Vector2(270, 92)
+
+[node name="Tree39" parent="." instance=ExtResource("2_pkv70")]
+position = Vector2(298, 92)
+
+[node name="Tree40" parent="." instance=ExtResource("2_pkv70")]
+position = Vector2(329, 92)
+
+[node name="Tree41" parent="." instance=ExtResource("2_pkv70")]
+position = Vector2(353, 92)
+
+[node name="Tree42" parent="." instance=ExtResource("2_pkv70")]
+position = Vector2(351, 127)
+
+[node name="Tree43" parent="." instance=ExtResource("2_pkv70")]
+position = Vector2(321, 126)
+
+[node name="Tree44" parent="." instance=ExtResource("2_pkv70")]
+position = Vector2(298, 120)
+
+[node name="Tree45" parent="." instance=ExtResource("2_pkv70")]
+position = Vector2(273, 116)
+
+[node name="Tree46" parent="." instance=ExtResource("2_pkv70")]
+position = Vector2(242, 115)
+
+[node name="Tree47" parent="." instance=ExtResource("2_pkv70")]
+position = Vector2(219, 115)
+
+[node name="Tree48" parent="." instance=ExtResource("2_pkv70")]
+position = Vector2(228, 135)
