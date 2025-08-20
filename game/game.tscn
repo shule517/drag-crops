@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://7salw3s751xe"]
+[gd_scene load_steps=4 format=3 uid="uid://7salw3s751xe"]
 
 [ext_resource type="PackedScene" uid="uid://fi46jlwk3kin" path="res://fields/field.tscn" id="1_l1rk1"]
 [ext_resource type="PackedScene" uid="uid://5jue7nn0jmvc" path="res://player/player.tscn" id="2_vasa2"]
+[ext_resource type="PackedScene" uid="uid://cerlt67h6aber" path="res://UI/upgrade_panel/upgrade_panel.tscn" id="3_h7iqs"]
 
 [node name="Game" type="Node2D"]
 
@@ -10,3 +11,11 @@ position = Vector2(-2, 5)
 
 [node name="Player" parent="." instance=ExtResource("2_vasa2")]
 position = Vector2(213, 129)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UpgradePanel" parent="CanvasLayer" instance=ExtResource("3_h7iqs")]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+grow_vertical = 2
