@@ -70,7 +70,7 @@ public partial class Player : Node2D
         // マウスドラッグ
         if (@event is InputEventMouseButton mouseEvent)
         {
-            if (mouseEvent.Pressed && mouseEvent.ButtonIndex == MouseButton.Left)
+            if (mouseEvent.Pressed && mouseEvent.ButtonIndex == MouseButton.Right)
             {
                 _isDragging = true;
                 _dragStartMousePosition = GetLocalMousePosition();
