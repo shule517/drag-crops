@@ -11,9 +11,3 @@ offset_bottom = 40.0
 
 [node name="UpgradeItem" parent="VBoxContainer" instance=ExtResource("1_15vj7")]
 layout_mode = 2
-
-[node name="UpgradeItem2" parent="VBoxContainer" instance=ExtResource("1_15vj7")]
-layout_mode = 2
-
-[node name="UpgradeItem3" parent="VBoxContainer" instance=ExtResource("1_15vj7")]
-layout_mode = 2

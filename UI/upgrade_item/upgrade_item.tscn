@@ -1,6 +1,10 @@
-[gd_scene format=3 uid="uid://c64og1fiuo3ws"]
+[gd_scene load_steps=2 format=3 uid="uid://c64og1fiuo3ws"]
+
+[ext_resource type="Script" uid="uid://vu04b347mkoi" path="res://UI/upgrade_item/UpgradeItem.cs" id="1_xdabs"]
 
 [node name="UpgradeItem" type="HBoxContainer"]
+scale = Vector2(0.1, 0.1)
+script = ExtResource("1_xdabs")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
@@ -8,4 +12,4 @@ text = "木"
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 2
-text = "アップグレード"
+text = "upgrade"

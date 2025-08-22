@@ -4,6 +4,7 @@ using System;
 public partial class Item : CharacterBody2D
 {
     [Export] public AudioStream GetItemAudio;
+    [Export] public AudioStream LevelUpAudio;
 
     private float _groundY;
     private float _bouncePower = -200; // 最初のバウンド力
@@ -23,6 +24,10 @@ public partial class Item : CharacterBody2D
         {
             if (_isDroped)
             {
+                if (GameData.Instance.GetTreeGold())
+                {
+                    Audio.Instance.PlaySound(LevelUpAudio);
+                }
                 Audio.Instance.PlaySound(GetItemAudio, GD.RandRange(0.8, 1.1));
                 QueueFree();
             }

@@ -1,8 +1,9 @@
-[gd_scene load_steps=115 format=4 uid="uid://s6chcw0oeuda"]
+[gd_scene load_steps=116 format=4 uid="uid://s6chcw0oeuda"]
 
 [ext_resource type="Script" uid="uid://b63d0h4hv30ao" path="res://items/item/Item.cs" id="1_gcaa1"]
 [ext_resource type="AudioStream" uid="uid://b3qypsbh07ro" path="res://items/item/音人_吸盤.mp3" id="2_xjbkg"]
 [ext_resource type="Shader" uid="uid://bs03haw20xtye" path="res://shader/outline.gdshader" id="3_lhgb6"]
+[ext_resource type="AudioStream" uid="uid://ddiwcblsrb50u" path="res://items/item/dova-syndromeレベルアップ、回復.mp3" id="3_m6g8q"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xjbkg"]
 radius = 7.0
@@ -777,6 +778,7 @@ animations = [{
 collision_mask = 0
 script = ExtResource("1_gcaa1")
 GetItemAudio = ExtResource("2_xjbkg")
+LevelUpAudio = ExtResource("3_m6g8q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_xjbkg")
