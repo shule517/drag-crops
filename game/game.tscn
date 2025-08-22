@@ -13,6 +13,7 @@ position = Vector2(-2, 5)
 position = Vector2(213, 129)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="UpgradePanel" parent="CanvasLayer" instance=ExtResource("3_h7iqs")]
 anchors_preset = 4

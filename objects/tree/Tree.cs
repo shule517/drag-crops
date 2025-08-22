@@ -56,7 +56,7 @@ public partial class Tree : Area2D
 
     public override void _InputEvent(Viewport viewport, InputEvent @event, int shapeIdx)
     {
-        if (@event is InputEventMouseButton mouseEvent && mouseEvent.Pressed)
+        if (@event is InputEventMouseButton mouseEvent && mouseEvent.Pressed && mouseEvent.ButtonIndex == MouseButton.Left)
         {
             Damage(1);
         }
