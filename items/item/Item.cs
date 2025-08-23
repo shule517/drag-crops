@@ -16,7 +16,7 @@ public partial class Item : CharacterBody2D
         _groundY = Position.Y;
 
         // 左右にバラける, 上に飛ばす
-        Velocity = new Vector2(GD.RandRange(-50, 50), -200);
+        Velocity = new Vector2(GD.RandRange(-50, 50), GD.RandRange(-200, -250));
         _area2D = GetNode<Area2D>("Area2D");
 
         // マウスホバーでアイテムGET
@@ -24,14 +24,20 @@ public partial class Item : CharacterBody2D
         {
             if (_isDroped)
             {
-                if (GameData.Instance.GetTreeGold())
-                {
-                    Audio.Instance.PlaySound(LevelUpAudio);
-                }
-                Audio.Instance.PlaySound(GetItemAudio, GD.RandRange(0.8, 1.1));
-                QueueFree();
+                GetItem();
             }
         };
+    }
+
+    void GetItem()
+    {
+        if (GameData.Instance.GetTreeGold())
+        {
+            Audio.Instance.PlaySound(LevelUpAudio);
+        }
+        Audio.Instance.PlaySound(GetItemAudio);
+        // Audio.Instance.PlaySound(GetItemAudio, GD.RandRange(0.8, 1.1));
+        QueueFree();
     }
 
     public override void _PhysicsProcess(double delta)
@@ -48,6 +54,9 @@ public partial class Item : CharacterBody2D
             {
                 Velocity = Velocity with { X = 0, Y = 0 };
                 _isDroped = true;
+
+                // アイテムが落ちた時に自動取得
+                GetItem();
             }
         }
         MoveAndSlide();
