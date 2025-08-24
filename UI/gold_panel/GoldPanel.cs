@@ -12,6 +12,6 @@ public partial class GoldPanel : Panel
 
     public override void _Process(double delta)
     {
-        _label.Text = GameData.Instance.GetGoldText();
+        _label.Text = GameData.Instance.Level + " Lv\n" + GameData.Instance.GetGoldText();
     }
 }
