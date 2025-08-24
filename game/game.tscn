@@ -1,10 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://7salw3s751xe"]
+[gd_scene load_steps=4 format=3 uid="uid://7salw3s751xe"]
 
 [ext_resource type="PackedScene" uid="uid://fi46jlwk3kin" path="res://fields/field.tscn" id="1_l1rk1"]
 [ext_resource type="PackedScene" uid="uid://5jue7nn0jmvc" path="res://player/player.tscn" id="2_vasa2"]
 [ext_resource type="PackedScene" uid="uid://dukxtd7kwuhdh" path="res://UI/footer/footer.tscn" id="3_h7iqs"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h7iqs"]
 
 [node name="Game" type="Node2D"]
 
@@ -21,11 +19,9 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_top = -40.0
-offset_right = 63.0
-offset_bottom = -25.0
+offset_right = 69.0
+offset_bottom = 1.0
 grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxEmpty_h7iqs")
 
 [node name="Footer" parent="CanvasLayer/PanelContainer" instance=ExtResource("3_h7iqs")]
-visible = true
 layout_mode = 2
