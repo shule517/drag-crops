@@ -12,11 +12,21 @@ public partial class GameData : Node
     public long TreeGold { get; private set; } = 5;
     public int Exp { get; private set; } = 0;
 
+    public string GetGoldText()
+    {
+        if (Gold > 100000000)
+            return $"{Gold/100000000.0f:F2} 億円";
+        if (Gold > 10000)
+            return $"{Gold/10000.0f:F2} 万円";
+
+        return $"{Gold} 円";
+    }
+
     public bool GetTreeGold()
     {
         Gold += TreeGold;
         Exp += 1;
-        if (Exp >= 50)
+        if (Exp >= 10)
         {
             LevelUp();
             Exp = 0;
