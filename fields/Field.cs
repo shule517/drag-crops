@@ -25,7 +25,6 @@ public partial class Field : Node2D
             var distance = position.DistanceTo(new Vector2(x, y));
             if (distance < 15)
             {
-                GD.Print(distance);
                 return;
             }
         }
