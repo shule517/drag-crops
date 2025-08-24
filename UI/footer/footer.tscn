@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dukxtd7kwuhdh"]
+
+[ext_resource type="FontFile" uid="uid://cgnek4n12mcuh" path="res://assets/fonts/PixelMplus12-Bold.ttf" id="1_fj7gb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_or6pb"]
+font = ExtResource("1_fj7gb")
+
+[node name="Footer" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "123.1234億"
+label_settings = SubResource("LabelSettings_or6pb")
