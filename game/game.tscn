@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://fi46jlwk3kin" path="res://fields/field.tscn" id="1_l1rk1"]
 [ext_resource type="PackedScene" uid="uid://5jue7nn0jmvc" path="res://player/player.tscn" id="2_vasa2"]
-[ext_resource type="PackedScene" uid="uid://cerlt67h6aber" path="res://UI/upgrade_panel/upgrade_panel.tscn" id="3_h7iqs"]
+[ext_resource type="PackedScene" uid="uid://dukxtd7kwuhdh" path="res://UI/footer/footer.tscn" id="3_h7iqs"]
 
 [node name="Game" type="Node2D"]
 
@@ -14,8 +14,13 @@ position = Vector2(213, 129)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="UpgradePanel" parent="CanvasLayer" instance=ExtResource("3_h7iqs")]
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-grow_vertical = 2
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="Footer" parent="CanvasLayer/PanelContainer" instance=ExtResource("3_h7iqs")]
+layout_mode = 2
