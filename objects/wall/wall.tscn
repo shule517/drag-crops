@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=4 uid="uid://c5nhupky0dl7t"]
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_bvd7n"]
+_data = PackedByteArray("AAADAAUAAAABAAAAEAAAABAAAABcAAAAUklGRlQAAABXRUJQVlA4TEcAAAAvD8ADAA/wCJSHFJ2nfv5jCYxi227ydzFRVxEQH1FRl4VeHaABKQwCmEhg0FC1RPQ/ALYyhyvc/kei2dPRrloqjpf5HHMPAAA=")
+size_override = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqi10"]
+atlas = SubResource("PortableCompressedTexture2D_bvd7n")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ltj23"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mqi10")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Wall" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_ltj23")
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"scale": "1.0",
+"should_round_fps": true,
+"slice": "",
+"source": "res://objects/wall/walll.aseprite",
+"source_uid": 6178790197089876088
+}
+metadata/_aseprite_wizard_source_file_hash_ = "042e97129b32b6d19ca47a35b03d0554"
