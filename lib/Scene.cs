@@ -1,3 +1,4 @@
+using System;
 using Godot;
 
 namespace dragcrops.lib;
@@ -10,6 +11,11 @@ public class Scene<TNode>(PackedScene packedScene) where TNode : Node2D
     public static Scene<TNode> Load(string scenePath)
     {
         PackedScene packedScene = GD.Load<PackedScene>(scenePath);
+        if (packedScene == null)
+        {
+            throw new InvalidOperationException($"シーンのパスが見つかりませんでした: {scenePath}");
+        }
+
         return new Scene<TNode>(packedScene);
     }
 
