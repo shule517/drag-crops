@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Item : CharacterBody2D
+public partial class ItemNode : CharacterBody2D
 {
     [Export] public AudioStream GetItemAudio;
     [Export] public AudioStream LevelUpAudio;
