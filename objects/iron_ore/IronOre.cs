@@ -1,6 +1,8 @@
 using Godot;
 using dragcrops.extenstions;
 using dragcrops.items.item;
+using dragcrops.lib.attributes;
+using dragcrops.lib.extensions;
 
 public partial class IronOre : Area2D
 {
@@ -10,18 +12,18 @@ public partial class IronOre : Area2D
     [Export] public AudioStream BreakAudio;
 
     private Audio _audio;
-    private AnimatedSprite2D _animatedSprite2D;
-    private ProgressBar _hpProgressBar;
+    [OnReady("AnimatedSprite2D")] private AnimatedSprite2D _animatedSprite2D;
+    [OnReady("HpProgressBar")] private ProgressBar _hpProgressBar;
 
     public override void _Ready()
     {
+        this.BindOnReadyNodes();
+
         _audio = Audio.Instance;
         
-        _animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
         _animatedSprite2D.Frame = GD.RandRange(0, 4);
         if (_animatedSprite2D.Frame == 2) _animatedSprite2D.Frame = 0;
 
-        _hpProgressBar = GetNode<ProgressBar>("HpProgressBar");
         _hpProgressBar.Visible = false;
         _hpProgressBar.ZIndex = 100;
 
