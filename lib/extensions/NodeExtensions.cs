@@ -5,9 +5,9 @@ using Godot;
 
 namespace dragcrops.lib.extensions;
 
-public static class Node2DExtensions
+public static class NodeExtensions
 {
-    public static void BindOnReadyNodes(this Node2D me)
+    public static void BindOnReadyNodes(this Node me)
     {
         var fields = me.GetType().GetFields(BindingFlags.NonPublic | BindingFlags.Instance);
         foreach (var field in fields)

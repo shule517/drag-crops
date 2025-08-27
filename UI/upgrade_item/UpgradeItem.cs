@@ -1,15 +1,15 @@
 using Godot;
-using System;
+using dragcrops.lib.attributes;
+using dragcrops.lib.extensions;
 
 public partial class UpgradeItem : HBoxContainer
 {
-    private Label _label;
-    private Button _button;
+    [OnReady("Label")] private Label _label;
+    [OnReady("Button")] private Button _button;
 
     public override void _Ready()
     {
-        _label = GetNode<Label>("Label");
-        _button = GetNode<Button>("Button");
+        this.BindOnReadyNodes();
         _button.ButtonDown += () => GameData.Instance.LevelUp();
     }
 
