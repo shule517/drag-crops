@@ -1,13 +1,14 @@
 using Godot;
-using System;
+using dragcrops.lib.attributes;
+using dragcrops.lib.extensions;
 
 public partial class GoldPanel : Panel
 {
-    private Label _label;
+    [OnReady("Label")] private Label _label;
 
     public override void _Ready()
     {
-        _label = GetNode<Label>("Label");
+        this.BindOnReadyNodes();
     }
 
     public override void _Process(double delta)
