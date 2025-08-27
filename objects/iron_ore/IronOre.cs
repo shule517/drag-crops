@@ -12,7 +12,6 @@ public partial class IronOre : Area2D
     private Audio _audio;
     private AnimatedSprite2D _animatedSprite2D;
     private ProgressBar _hpProgressBar;
-    private static readonly PackedScene ItemScene = GD.Load<PackedScene>("res://items/item/item_node.tscn");
 
     public override void _Ready()
     {
@@ -64,9 +63,8 @@ public partial class IronOre : Area2D
     // TODO: 別クラスに移動させる
     private void DropItem()
     {
-        var item = ItemScene.Instantiate<ItemNode>();
-        item.GlobalPosition = new Vector2(GlobalPosition.X + GD.RandRange(-10, 10), GlobalPosition.Y - 7);
-        item.ItemType = ItemType.石;
+        var globalPosition = new Vector2(GlobalPosition.X + GD.RandRange(-10, 10), GlobalPosition.Y - 7);
+        var item = ItemNode.Instantiate(globalPosition, ItemType.石);
         GetParent<Node>().AddChild(item);
     }
 
