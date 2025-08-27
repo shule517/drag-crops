@@ -35,8 +35,8 @@ public partial class Item : CharacterBody2D
         {
             Audio.Instance.PlaySound(LevelUpAudio);
         }
-        Audio.Instance.PlaySound(GetItemAudio, volumeDb: -10.0f);
-        // Audio.Instance.PlaySound(GetItemAudio, GD.RandRange(0.8, 1.1));
+        // Audio.Instance.PlaySound(GetItemAudio, volumeDb: -10.0f);
+        Audio.Instance.PlaySound(GetItemAudio, GD.RandRange(0.8, 1.1));
         QueueFree();
     }
 
@@ -55,8 +55,8 @@ public partial class Item : CharacterBody2D
                 Velocity = Velocity with { X = 0, Y = 0 };
                 _isDroped = true;
 
-                // アイテムが落ちた時に自動取得
-                GetItem();
+                // // アイテムが落ちた時に自動取得
+                // GetItem();
             }
         }
         MoveAndSlide();

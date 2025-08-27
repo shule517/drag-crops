@@ -3,18 +3,23 @@ using Godot;
 
 public partial class Tree : Area2D
 {
+    [Export] public int MaxHp { get; set; } = 10;
     [Export] public int Hp { get; set; } = 10;
     [Export] public AudioStream ChopTreeAudio;
     [Export] public AudioStream FallTreeAudio;
 
     private Audio _audio;
     private AnimatedSprite2D _animatedSprite2D;
+    private ProgressBar _hpProgressBar;
     private static readonly PackedScene ItemScene = GD.Load<PackedScene>("res://items/item/item.tscn");
 
     public override void _Ready()
     {
         _audio = Audio.Instance;
         _animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+        _hpProgressBar = GetNode<ProgressBar>("HpProgressBar");
+        _hpProgressBar.Visible = false;
+        _hpProgressBar.ZIndex = 100;
 
         MouseEntered += () => SetSharderParamIsSeleted(true);
         MouseExited += () => SetSharderParamIsSeleted(false);
@@ -22,6 +27,11 @@ public partial class Tree : Area2D
 
     public override void _Process(double delta)
     {
+        if (Hp != MaxHp)
+        {
+            _hpProgressBar.Value = (int)(Hp * 100 / MaxHp);
+            _hpProgressBar.Visible = true;
+        }
     }
 
     private void SetSharderParamIsSeleted(bool isSelected)

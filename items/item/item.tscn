@@ -1,7 +1,7 @@
 [gd_scene load_steps=116 format=4 uid="uid://s6chcw0oeuda"]
 
 [ext_resource type="Script" uid="uid://b63d0h4hv30ao" path="res://items/item/Item.cs" id="1_gcaa1"]
-[ext_resource type="AudioStream" uid="uid://ce3tporpb06as" path="res://items/item/pixabay-cashier-quotka-chingquot-sound-effect-129698.mp3" id="2_m6g8q"]
+[ext_resource type="AudioStream" uid="uid://b3qypsbh07ro" path="res://items/item/音人_吸盤.mp3" id="2_m6g8q"]
 [ext_resource type="Shader" uid="uid://bs03haw20xtye" path="res://shader/outline.gdshader" id="3_lhgb6"]
 [ext_resource type="AudioStream" uid="uid://ddiwcblsrb50u" path="res://items/item/dova-syndromeレベルアップ、回復.mp3" id="3_m6g8q"]
 
