@@ -1,0 +1,77 @@
+[gd_scene load_steps=10 format=4 uid="uid://dicx858mp7wjd"]
+
+[ext_resource type="PackedScene" uid="uid://cebx4jft5jedq" path="res://objects/breakeable_object/breakeable_object.tscn" id="1_7qxyv"]
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_7qxyv"]
+_data = PackedByteArray("AAADAAUAAAABAAAAMAAAACAAAAD2AQAAUklGRu4BAABXRUJQVlA4TOEBAAAvL8AHEF+gJgCQhov+uajAO53v1hxqIklhMIF/UQiALoeWoVIaSZJy+vLP6BIhj8+v5j8AABFlYXed3PFrKP/daAOHrgMOcjaQ6/6fIye/zjb/igylR+QryVDdaoQWTWn9iZXjG1iXWoeRtiLfkPPKc80fPEbe/T/eLk5PENH/CcARVjogzRIdiFzJbEUNUWpTapgT3ZcVAbjPO0qA6s1tVXwwpnvhxB9AnzMXu4Bb4+084cN5c8KaFwT3hFd9ApznHZ9QhFljL7wkFHfm3uQJKMbMbyoU3pjswhpBwvU3QQEZPn7MhCI/NZut+V1I7JWBAImxIWbteObzBMReWQPAJPYiQTLrg7cJ+Dos0f61BlDYcRhbwv7lQwhBcZDyISgOVhSHLUoAVKHaItoihSVA+LrmqSEdS43nxVoFjPjmO98QZ2xqWR9XUGXmdxUg7kJmVwiQOX5Xwa0xMyvE2VPZ0oPUwj1yvv+YmclZe8LaC38hyswlFX6r1+hYa+yFhaQfKubVSPJh6/2g0b2QnZpfSW4tPHvjI0mv/uAf/6LOiQun5pdWkvMhPmzza71IHXO8u7T0j4oxly7VwKTOUy+SmBN2KREkcqkTNFV7NdAxNhGAybDEf4dTAMQkwsEq4VABAA==")
+size_override = Vector2(48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uia63"]
+atlas = SubResource("PortableCompressedTexture2D_7qxyv")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32wif"]
+atlas = SubResource("PortableCompressedTexture2D_7qxyv")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ntw6h"]
+atlas = SubResource("PortableCompressedTexture2D_7qxyv")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qh0pd"]
+atlas = SubResource("PortableCompressedTexture2D_7qxyv")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c32b5"]
+atlas = SubResource("PortableCompressedTexture2D_7qxyv")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_se184"]
+atlas = SubResource("PortableCompressedTexture2D_7qxyv")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eth3e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uia63")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32wif")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ntw6h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qh0pd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c32b5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_se184")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="IronOre" instance=ExtResource("1_7qxyv")]
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+position = Vector2(0, 0)
+sprite_frames = SubResource("SpriteFrames_eth3e")
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"scale": "1.0",
+"should_round_fps": true,
+"slice": "",
+"source": "res://objects/iron_ore/iron.aseprite",
+"source_uid": 7013954795662241131
+}
+metadata/_aseprite_wizard_source_file_hash_ = "4880bdb9501512775d1c1532236ad538"

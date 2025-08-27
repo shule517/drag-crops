@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://c66u2thbuy2ip"
+path="res://.godot/imported/iron.aseprite-fe80ebbfae177e5507c885c3a5f06b07.res"
+
+[deps]
+
+source_file="res://objects/iron_ore/iron.aseprite"
+dest_files=["res://.godot/imported/iron.aseprite-fe80ebbfae177e5507c885c3a5f06b07.res"]
+
+[params]
+
