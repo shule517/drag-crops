@@ -13,6 +13,7 @@ public class Scene<TNode>(PackedScene packedScene) where TNode : Node2D
         PackedScene packedScene = GD.Load<PackedScene>(scenePath);
         if (packedScene == null)
         {
+            // TODO: 起動時にエラーを投げたい
             throw new InvalidOperationException($"シーンのパスが見つかりませんでした: {scenePath}");
         }
 
