@@ -11,7 +11,7 @@ public partial class IronOre : Area2D
     private Audio _audio;
     private AnimatedSprite2D _animatedSprite2D;
     private ProgressBar _hpProgressBar;
-    private static readonly PackedScene ItemScene = GD.Load<PackedScene>("res://items/item/item.tscn");
+    private static readonly PackedScene ItemScene = GD.Load<PackedScene>("res://items/item/item_node.tscn");
 
     public override void _Ready()
     {
