@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using dragcrops.items.item;
+using dragcrops.lib;
 
 public partial class ItemNode : CharacterBody2D
 {
@@ -15,10 +16,10 @@ public partial class ItemNode : CharacterBody2D
 
     // TODO: 読み込みを遅延した方がよいかも
     // TODO: そもそもGD.Load<PackedScene>()を扱いやすいクラスに分けたい
-    private static PackedScene _itemNode = GD.Load<PackedScene>("res://items/item/item_node.tscn");
+    private static Scene<ItemNode> _itemNodeScene = Scene<ItemNode>.Load("res://items/item/item_node.tscn");
     public static ItemNode Instantiate(Vector2 globalPosition, ItemType itemType)
     {
-        var item = _itemNode.Instantiate<ItemNode>();
+        var item = _itemNodeScene.Instantiate();
         item.GlobalPosition = globalPosition;
         item.ItemType = itemType;
         return item;
