@@ -1,18 +1,20 @@
 using Godot;
 using System.Collections.Generic;
 using dragcrops.extenstions;
+using dragcrops.lib.attributes;
+using dragcrops.lib.extensions;
 
 public partial class Field : Node2D
 {
     private PackedScene _treeScene = GD.Load<PackedScene>("res://objects/tree/tree.tscn");
     private PackedScene _ironOreScene = GD.Load<PackedScene>("res://objects/iron_ore/iron_ore.tscn");
     private List<Vector2> _objectPositions = new List<Vector2>();
-    private TileMapLayer _wallTileMapLayer;
+    [OnReady("WallTileMapLayer")] private TileMapLayer _wallTileMapLayer;
 
     public override void _Ready()
     {
-        _wallTileMapLayer = GetNode<TileMapLayer>("WallTileMapLayer");
-
+        this.BindOnReadyNodes();
+        
         // 木の追加
         30.Times((x) =>
         {

@@ -1,3 +1,5 @@
+using dragcrops.lib.attributes;
+using dragcrops.lib.extensions;
 using Godot;
 
 public partial class Player : Node2D
@@ -5,12 +7,12 @@ public partial class Player : Node2D
     private bool _isDragging = false;
     private Vector2 _dragStartPlayerPosition = Vector2.Zero;
     private Vector2 _dragStartMousePosition = Vector2.Zero;
-    private Camera2D _camera2D;
+    [OnReady("Camera2D")] private Camera2D _camera2D;
     private Vector2 _lastMousePosition = Vector2.Zero;
 
     public override void _Ready()
     {
-        _camera2D = GetNode<Camera2D>("Camera2D");
+        this.BindOnReadyNodes();
     }
 
     public override void _Process(double delta)

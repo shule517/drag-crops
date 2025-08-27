@@ -1,5 +1,7 @@
 using dragcrops.extenstions;
 using dragcrops.items.item;
+using dragcrops.lib.attributes;
+using dragcrops.lib.extensions;
 using Godot;
 
 public partial class Tree : Area2D
@@ -10,14 +12,15 @@ public partial class Tree : Area2D
     [Export] public AudioStream FallTreeAudio;
 
     private Audio _audio;
-    private AnimatedSprite2D _animatedSprite2D;
-    private ProgressBar _hpProgressBar;
+    [OnReady("AnimatedSprite2D")] private AnimatedSprite2D _animatedSprite2D;
+    [OnReady("HpProgressBar")] private ProgressBar _hpProgressBar;
 
     public override void _Ready()
     {
+        this.BindOnReadyNodes();
+
         _audio = Audio.Instance;
-        _animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
-        _hpProgressBar = GetNode<ProgressBar>("HpProgressBar");
+
         _hpProgressBar.Visible = false;
         _hpProgressBar.ZIndex = 100;
 
