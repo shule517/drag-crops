@@ -1,15 +1,17 @@
 using Godot;
 using System.Collections.Generic;
 using dragcrops.extenstions;
+using dragcrops.lib;
 using dragcrops.lib.attributes;
 using dragcrops.lib.extensions;
 
 public partial class Field : Node2D
 {
-    private PackedScene _treeScene = GD.Load<PackedScene>("res://objects/tree/tree.tscn");
-    private PackedScene _ironOreScene = GD.Load<PackedScene>("res://objects/iron_ore/iron_ore.tscn");
-    private List<Vector2> _objectPositions = new List<Vector2>();
     [OnReady("WallTileMapLayer")] private TileMapLayer _wallTileMapLayer;
+
+    private static readonly Scene<Tree> TreeScene = Scene<Tree>.Load("res://objects/tree/tree.tscn");
+    private static readonly Scene<IronOre> IronOreScene = Scene<IronOre>.Load("res://objects/iron_ore/iron_ore.tscn");
+    private readonly List<Vector2> _objectPositions = [];
 
     public override void _Ready()
     {
@@ -20,7 +22,7 @@ public partial class Field : Node2D
         {
             30.Times((y) =>
             {
-                Spawn(GD.RandRange(0, 1000), GD.RandRange(5, 1000), _treeScene);
+                Spawn(GD.RandRange(0, 1000), GD.RandRange(5, 1000), TreeScene);
             });
         });
 
@@ -29,12 +31,12 @@ public partial class Field : Node2D
         {
             30.Times((y) =>
             {
-                Spawn(GD.RandRange(0, 1000), GD.RandRange(-5, -1000), _ironOreScene);
+                Spawn(GD.RandRange(0, 1000), GD.RandRange(-5, -1000), IronOreScene);
             });
         });
     }
 
-    private void Spawn(float x, float y, PackedScene objectScene)
+    private void Spawn<T>(float x, float y, Scene<T> scene) where T : Node2D
     {
         foreach (var position in _objectPositions)
         {
@@ -46,9 +48,9 @@ public partial class Field : Node2D
         }
 
         _objectPositions.Add(new Vector2(x, y));
-        var objectNode = objectScene.Instantiate<Node2D>();
-        objectNode.GlobalPosition = new Vector2(x, y);
-        CallDeferred("add_child", objectNode);;
+        var node = scene.Instantiate();
+        node.GlobalPosition = new Vector2(x, y);
+        CallDeferred("add_child", node);;
     }
 
     public override void _Input(InputEvent @event)
