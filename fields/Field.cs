@@ -54,8 +54,6 @@ public partial class Field : Node2D
         if (@event is InputEventMouseMotion mouseEvent)
         {
             Vector2 localPos = GetGlobalMousePosition();
-
-            GD.Print(localPos.Y);
             _wallTileMapLayer.Visible = 0 < localPos.Y;
         }
     }

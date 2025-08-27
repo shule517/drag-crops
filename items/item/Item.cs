@@ -45,7 +45,7 @@ public partial class Item : CharacterBody2D
         // だんだん左右の動きはゆっくりに, 重力をかける
         Velocity = new Vector2(Velocity.X * 0.95f, Velocity.Y + (float)(800 * delta));
 
-        if (Position.Y > _groundY)
+        if (_groundY < Position.Y)
         {
             Position = Position with { Y = _groundY };
             Velocity = Velocity with { Y = Velocity.Y * -0.6f };
