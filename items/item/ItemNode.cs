@@ -13,6 +13,17 @@ public partial class ItemNode : CharacterBody2D
     private Area2D _area2D;
     private bool _isDroped = false;
 
+    // TODO: 読み込みを遅延した方がよいかも
+    // TODO: そもそもGD.Load<PackedScene>()を扱いやすいクラスに分けたい
+    private static PackedScene _itemNode = GD.Load<PackedScene>("res://items/item/item_node.tscn");
+    public static ItemNode Instantiate(Vector2 globalPosition, ItemType itemType)
+    {
+        var item = _itemNode.Instantiate<ItemNode>();
+        item.GlobalPosition = globalPosition;
+        item.ItemType = itemType;
+        return item;
+    }
+
     public override void _Ready()
     {
         GD.Print(ItemType);

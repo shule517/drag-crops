@@ -60,9 +60,8 @@ public partial class Tree : Area2D
     // TODO: 別クラスに移動させる
     private void DropItem()
     {
-        var item = ItemScene.Instantiate<ItemNode>();
-        item.GlobalPosition = new Vector2(GlobalPosition.X + GD.RandRange(-10, 10), GlobalPosition.Y - 7);
-        item.ItemType = ItemType.木材;
+        var globalPosition = new Vector2(GlobalPosition.X + GD.RandRange(-10, 10), GlobalPosition.Y - 7);
+        var item = ItemNode.Instantiate(globalPosition, ItemType.木材);
         GetParent<Node>().AddChild(item);
     }
 
