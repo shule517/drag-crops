@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://324kof43rqhi"]
+[gd_scene load_steps=20 format=4 uid="uid://324kof43rqhi"]
 
 [ext_resource type="Script" uid="uid://dtlkglcapv3ov" path="res://objects/tree/Tree.cs" id="1_olndm"]
 [ext_resource type="AudioStream" uid="uid://q0i0qw2wleun" path="res://objects/tree/se/音人_斧（木こり）.mp3" id="2_weuwi"]

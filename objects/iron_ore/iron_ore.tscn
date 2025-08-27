@@ -1,6 +1,17 @@
-[gd_scene load_steps=10 format=4 uid="uid://dicx858mp7wjd"]
+[gd_scene load_steps=16 format=4 uid="uid://dicx858mp7wjd"]
 
-[ext_resource type="PackedScene" uid="uid://cebx4jft5jedq" path="res://objects/breakeable_object/breakeable_object.tscn" id="1_7qxyv"]
+[ext_resource type="Script" uid="uid://by5t2bkcpubw1" path="res://objects/iron_ore/IronOre.cs" id="1_7qxyv"]
+[ext_resource type="AudioStream" uid="uid://g2r2hxq7auvb" path="res://objects/iron_ore/効果音ラボ_石が砕ける.mp3" id="2_32wif"]
+[ext_resource type="Shader" uid="uid://bs03haw20xtye" path="res://shader/outline.gdshader" id="2_uia63"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uqj2b"]
+radius = 7.07107
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uia63"]
+resource_local_to_scene = true
+shader = ExtResource("2_uia63")
+shader_parameter/enabled = true
+shader_parameter/is_selected = false
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_7qxyv"]
 _data = PackedByteArray("AAADAAUAAAABAAAAMAAAACAAAAD2AQAAUklGRu4BAABXRUJQVlA4TOEBAAAvL8AHEF+gJgCQhov+uajAO53v1hxqIklhMIF/UQiALoeWoVIaSZJy+vLP6BIhj8+v5j8AABFlYXed3PFrKP/daAOHrgMOcjaQ6/6fIye/zjb/igylR+QryVDdaoQWTWn9iZXjG1iXWoeRtiLfkPPKc80fPEbe/T/eLk5PENH/CcARVjogzRIdiFzJbEUNUWpTapgT3ZcVAbjPO0qA6s1tVXwwpnvhxB9AnzMXu4Bb4+084cN5c8KaFwT3hFd9ApznHZ9QhFljL7wkFHfm3uQJKMbMbyoU3pjswhpBwvU3QQEZPn7MhCI/NZut+V1I7JWBAImxIWbteObzBMReWQPAJPYiQTLrg7cJ+Dos0f61BlDYcRhbwv7lQwhBcZDyISgOVhSHLUoAVKHaItoihSVA+LrmqSEdS43nxVoFjPjmO98QZ2xqWR9XUGXmdxUg7kJmVwiQOX5Xwa0xMyvE2VPZ0oPUwj1yvv+YmclZe8LaC38hyswlFX6r1+hYa+yFhaQfKubVSPJh6/2g0b2QnZpfSW4tPHvjI0mv/uAf/6LOiQun5pdWkvMhPmzza71IHXO8u7T0j4oxly7VwKTOUy+SmBN2KREkcqkTNFV7NdAxNhGAybDEf4dTAMQkwsEq4VABAA==")
@@ -56,11 +67,32 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="IronOre" instance=ExtResource("1_7qxyv")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7qxyv"]
+bg_color = Color(0.160784, 0.184314, 0.27451, 1)
 
-[node name="AnimatedSprite2D" parent="." index="1"]
-position = Vector2(0, 0)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uia63"]
+bg_color = Color(0.168627, 1, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.203922, 0.0666667, 0.490196, 1)
+
+[node name="IronOre" type="Area2D"]
+script = ExtResource("1_7qxyv")
+ChopAudio = ExtResource("2_32wif")
+BreakAudio = ExtResource("2_32wif")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_uqj2b")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_uia63")
 sprite_frames = SubResource("SpriteFrames_eth3e")
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
 metadata/_aseprite_wizard_config_ = {
 "embed_tex": true,
 "layers": [],
@@ -75,3 +107,13 @@ metadata/_aseprite_wizard_config_ = {
 "source_uid": 7013954795662241131
 }
 metadata/_aseprite_wizard_source_file_hash_ = "4880bdb9501512775d1c1532236ad538"
+
+[node name="HpProgressBar" type="ProgressBar" parent="."]
+offset_left = -6.0
+offset_top = 4.0
+offset_right = 6.0
+offset_bottom = 7.0
+theme_override_styles/background = SubResource("StyleBoxFlat_7qxyv")
+theme_override_styles/fill = SubResource("StyleBoxFlat_uia63")
+value = 100.0
+show_percentage = false

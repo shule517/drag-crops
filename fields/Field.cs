@@ -5,7 +5,8 @@ using dragcrops.extenstions;
 public partial class Field : Node2D
 {
     private PackedScene _treeScene = GD.Load<PackedScene>("res://objects/tree/tree.tscn");
-    private List<Vector2> _treePositions = new List<Vector2>();
+    private PackedScene _ironOreScene = GD.Load<PackedScene>("res://objects/iron_ore/iron_ore.tscn");
+    private List<Vector2> _objectPositions = new List<Vector2>();
 
     public override void _Ready()
     {
@@ -13,14 +14,22 @@ public partial class Field : Node2D
         {
             30.Times((y) =>
             {
-                SpawnTree(GD.RandRange(0, 1000), GD.RandRange(0, 1000));
+                Spawn(GD.RandRange(0, 1000), GD.RandRange(0, 1000), _treeScene);
+            });
+        });
+
+        30.Times((x) =>
+        {
+            30.Times((y) =>
+            {
+                Spawn(GD.RandRange(0, 1000), GD.RandRange(0, -1000), _ironOreScene);
             });
         });
     }
 
-    private void SpawnTree(float x, float y)
+    private void Spawn(float x, float y, PackedScene objectScene)
     {
-        foreach (var position in _treePositions)
+        foreach (var position in _objectPositions)
         {
             var distance = position.DistanceTo(new Vector2(x, y));
             if (distance < 15)
@@ -29,9 +38,9 @@ public partial class Field : Node2D
             }
         }
 
-        _treePositions.Add(new Vector2(x, y));
-        var tree = _treeScene.Instantiate<Node2D>();
-        tree.GlobalPosition = new Vector2(x, y);
-        CallDeferred("add_child", tree);;
+        _objectPositions.Add(new Vector2(x, y));
+        var objectNode = objectScene.Instantiate<Node2D>();
+        objectNode.GlobalPosition = new Vector2(x, y);
+        CallDeferred("add_child", objectNode);;
     }
 }
