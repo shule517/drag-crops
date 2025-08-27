@@ -2,6 +2,8 @@ using Godot;
 using System;
 using dragcrops.items.item;
 using dragcrops.lib;
+using dragcrops.lib.attributes;
+using dragcrops.lib.extensions;
 
 public partial class ItemNode : CharacterBody2D
 {
@@ -9,9 +11,10 @@ public partial class ItemNode : CharacterBody2D
     [Export] public AudioStream GetItemAudio;
     [Export] public AudioStream LevelUpAudio;
 
+    [OnReady("Area2D")] private Area2D _area2D;
+
     private float _groundY;
     private float _bouncePower = -200; // 最初のバウンド力
-    private Area2D _area2D;
     private bool _isDroped = false;
     private static Scene<ItemNode> _itemNodeScene = Scene<ItemNode>.Load("res://items/item/item_node.tscn");
 
@@ -26,13 +29,14 @@ public partial class ItemNode : CharacterBody2D
 
     public override void _Ready()
     {
+        this.BindOnReadyNodes();
+
         GD.Print(ItemType);
 
         _groundY = Position.Y;
 
         // 左右にバラける, 上に飛ばす
         Velocity = new Vector2(GD.RandRange(-50, 50), -200); // GD.RandRange(-200, -250)
-        _area2D = GetNode<Area2D>("Area2D");
 
         // マウスホバーでアイテムGET
         _area2D.MouseEntered += () =>
