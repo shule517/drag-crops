@@ -1,5 +1,6 @@
 using Godot;
 using dragcrops.extenstions;
+using dragcrops.items.item;
 
 public partial class IronOre : Area2D
 {
@@ -63,8 +64,9 @@ public partial class IronOre : Area2D
     // TODO: 別クラスに移動させる
     private void DropItem()
     {
-        var item = ItemScene.Instantiate<Node2D>();
+        var item = ItemScene.Instantiate<ItemNode>();
         item.GlobalPosition = new Vector2(GlobalPosition.X + GD.RandRange(-10, 10), GlobalPosition.Y - 7);
+        item.ItemType = ItemType.石;
         GetParent<Node>().AddChild(item);
     }
 

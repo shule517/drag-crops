@@ -1,8 +1,10 @@
 using Godot;
 using System;
+using dragcrops.items.item;
 
 public partial class ItemNode : CharacterBody2D
 {
+    [Export] public ItemType ItemType;
     [Export] public AudioStream GetItemAudio;
     [Export] public AudioStream LevelUpAudio;
 
@@ -13,6 +15,8 @@ public partial class ItemNode : CharacterBody2D
 
     public override void _Ready()
     {
+        GD.Print(ItemType);
+
         _groundY = Position.Y;
 
         // 左右にバラける, 上に飛ばす
