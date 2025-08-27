@@ -14,7 +14,7 @@ public class Scene<TNode>(PackedScene packedScene) where TNode : Node2D
         if (packedScene == null)
         {
             // TODO: 起動時にエラーを投げたい
-            throw new InvalidOperationException($"シーンのパスが見つかりませんでした: {scenePath}");
+            throw new InvalidOperationException($"シーンが見つかりませんでした: {scenePath}");
         }
 
         return new Scene<TNode>(packedScene);

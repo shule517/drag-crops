@@ -1,3 +1,4 @@
+using System;
 using System.Reflection;
 using dragcrops.lib.attributes;
 using Godot;
@@ -15,6 +16,10 @@ public static class Node2DExtensions
             if (attribute != null)
             {
                 var node = me.GetNode<Node>(attribute.Path);
+
+                if (node == null)
+                    throw new InvalidOperationException($"Nodeが見つかりませんでした: {attribute.Path}");
+
                 field.SetValue(me, node);
             }
         }
