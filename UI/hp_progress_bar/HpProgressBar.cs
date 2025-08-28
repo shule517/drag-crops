@@ -1,7 +1,6 @@
 using Godot;
-using System;
 
-[CustomScript("ProgressBar", "res://icon.svg")]
+[CustomScript("ProgressBar", "res://addons/CustomScripts/icon-export.png")]
 public partial class HpProgressBar : ProgressBar
 {
 }

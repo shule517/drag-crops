@@ -1,7 +1,6 @@
 #if TOOLS
 using Godot;
-using System;
-using System.Linq;
+using System.IO;
 using System.Reflection;
 
 [Tool]
@@ -13,19 +12,32 @@ public partial class CustomScriptsPlugin : EditorPlugin
         var assembly = Assembly.GetExecutingAssembly(); 
         foreach (var type in assembly.GetTypes())
         {
-            GD.Print(type.FullName);
             var attr = type.GetCustomAttribute<CustomScriptAttribute>();
             if (attr != null)
             {
-                // TODO: パスを取得して渡す
-                var script = GD.Load<Script>("res://UI/hp_progress_bar/" + type.FullName + ".cs"); 
+                var path = FindScriptPath(type.FullName);
+                var script = GD.Load<Script>(path); 
                 Texture2D icon = null;
                 if (!string.IsNullOrEmpty(attr.IconPath))
                     icon = GD.Load<Texture2D>(attr.IconPath);
 
+                GD.Print($"AddCustomType: {type.FullName}");
                 AddCustomType(type.Name, attr.BaseType, script, icon);
             }
         }
+    }
+
+    string FindScriptPath(string typeName)
+    {
+        foreach (var file in Directory.GetFiles(ProjectSettings.GlobalizePath("res://"), "*.cs", SearchOption.AllDirectories))
+        {
+            if (Path.GetFileNameWithoutExtension(file) == typeName)
+            {
+                // OSパス → res:// パスに変換
+                return ProjectSettings.LocalizePath(file);
+            }
+        }
+        return null;
     }
 
     public override void _ExitTree()
