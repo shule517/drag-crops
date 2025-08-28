@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5p88aueb5pmt"]
+
+[ext_resource type="Script" uid="uid://dxjp0qk4i23d4" path="res://UI/hp_progress_bar/HpProgressBar.cs" id="1_vk70h"]
+
+[node name="HpProgressBar" type="ProgressBar"]
+offset_right = 177.0
+offset_bottom = 27.0
+script = ExtResource("1_vk70h")
