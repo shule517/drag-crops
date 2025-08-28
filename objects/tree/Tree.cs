@@ -13,7 +13,7 @@ public partial class Tree : Area2D
 
     private Audio _audio;
     [OnReady("AnimatedSprite2D")] private AnimatedSprite2D _animatedSprite2D;
-    [OnReady("HpProgressBar")] private ProgressBar _hpProgressBar;
+    [OnReady("HpProgressBar")] private HpProgressBar _hpProgressBar;
 
     public override void _Ready()
     {

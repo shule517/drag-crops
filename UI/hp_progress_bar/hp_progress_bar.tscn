@@ -1,8 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://c5p88aueb5pmt"]
+[gd_scene load_steps=4 format=3 uid="uid://c5p88aueb5pmt"]
 
 [ext_resource type="Script" uid="uid://dxjp0qk4i23d4" path="res://UI/hp_progress_bar/HpProgressBar.cs" id="1_vk70h"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vk70h"]
+bg_color = Color(0.160784, 0.184314, 0.27451, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2qok1"]
+bg_color = Color(0.168627, 1, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.203922, 0.0666667, 0.490196, 1)
+
 [node name="HpProgressBar" type="ProgressBar"]
-offset_right = 177.0
-offset_bottom = 27.0
+offset_right = 14.0
+offset_bottom = 3.0
+theme_override_styles/background = SubResource("StyleBoxFlat_vk70h")
+theme_override_styles/fill = SubResource("StyleBoxFlat_2qok1")
+value = 100.0
+show_percentage = false
 script = ExtResource("1_vk70h")
