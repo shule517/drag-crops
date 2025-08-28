@@ -33,7 +33,7 @@ project/assembly_name="drag-crops"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg")
+enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addons/CustomScripts/plugin.cfg")
 
 [rendering]
 
