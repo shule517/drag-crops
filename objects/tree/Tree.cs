@@ -21,20 +21,8 @@ public partial class Tree : Area2D
 
         _audio = Audio.Instance;
 
-        _hpProgressBar.Visible = false;
-        _hpProgressBar.ZIndex = 100;
-
         MouseEntered += () => SetSharderParamIsSeleted(true);
         MouseExited += () => SetSharderParamIsSeleted(false);
-    }
-
-    public override void _Process(double delta)
-    {
-        if (Hp != MaxHp)
-        {
-            _hpProgressBar.Value = (int)(Hp * 100 / MaxHp);
-            _hpProgressBar.Visible = true;
-        }
     }
 
     private void SetSharderParamIsSeleted(bool isSelected)
@@ -45,6 +33,12 @@ public partial class Tree : Area2D
     private void Damage(int damage)
     {
         Hp -= damage;
+
+        if (Hp != MaxHp)
+        {
+            _hpProgressBar.Value = (int)(Hp * 100 / MaxHp);
+            _hpProgressBar.Visible = true;
+        }
 
         if (Hp <= 0)
         {
