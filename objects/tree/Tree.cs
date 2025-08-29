@@ -32,24 +32,15 @@ public partial class Tree : Area2D
 
     private void Damage(int damage)
     {
+        _audio.PlaySound(ChopTreeAudio, GD.RandRange(0.8, 1.1));
         Hp -= damage;
+        _hpProgressBar.UpdateProgress(Hp, MaxHp);
 
-        if (Hp != MaxHp)
-        {
-            _hpProgressBar.Value = (int)(Hp * 100 / MaxHp);
-            _hpProgressBar.Visible = true;
-        }
-
+        // 木が倒れた
         if (Hp <= 0)
         {
-            // 木が倒れた
-            _audio.PlaySound(ChopTreeAudio, GD.RandRange(0.8, 1.1));
             GD.RandRange(3, 10).Times((i) => DropItem());
             QueueFree();
-        }
-        else
-        {
-            _audio.PlaySound(ChopTreeAudio, GD.RandRange(0.8, 1.1));
         }
     }
 
