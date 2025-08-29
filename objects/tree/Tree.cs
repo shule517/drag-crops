@@ -11,15 +11,12 @@ public partial class Tree : Area2D
     [Export] public AudioStream ChopTreeAudio;
     [Export] public AudioStream FallTreeAudio;
 
-    private Audio _audio;
     [OnReady("AnimatedSprite2D")] private AnimatedSprite2D _animatedSprite2D;
     [OnReady("HpProgressBar")] private HpProgressBar _hpProgressBar;
 
     public override void _Ready()
     {
         this.BindOnReadyNodes();
-
-        _audio = Audio.Instance;
 
         MouseEntered += () => SetSharderParamIsSeleted(true);
         MouseExited += () => SetSharderParamIsSeleted(false);
@@ -32,7 +29,7 @@ public partial class Tree : Area2D
 
     private void Damage(int damage)
     {
-        _audio.PlaySound(ChopTreeAudio, GD.RandRange(0.8, 1.1));
+        Audio.Instance.PlaySound(ChopTreeAudio, GD.RandRange(0.8, 1.1));
         Hp -= damage;
         _hpProgressBar.UpdateProgress(Hp, MaxHp);
 

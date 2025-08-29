@@ -2,7 +2,7 @@ using Godot;
 
 public partial class Audio : Node
 {
-    public static Audio Instance => Tree.Root.GetNode<Audio>("/root/Audio");
+    public static Audio Instance { get; } = Tree.Root.GetNode<Audio>("/root/Audio");
     private static SceneTree Tree => Engine.GetMainLoop() as SceneTree;
 
     public void PlaySound(AudioStream audioStream, double pitchScale = 1.0f, float volumeDb = 0.0f)

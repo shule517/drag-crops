@@ -11,7 +11,6 @@ public partial class IronOre : Area2D
     [Export] public AudioStream ChopAudio;
     [Export] public AudioStream BreakAudio;
 
-    private Audio _audio;
     [OnReady("AnimatedSprite2D")] private AnimatedSprite2D _animatedSprite2D;
     [OnReady("HpProgressBar")] private HpProgressBar _hpProgressBar;
 
@@ -19,8 +18,6 @@ public partial class IronOre : Area2D
     {
         this.BindOnReadyNodes();
 
-        _audio = Audio.Instance;
-        
         _animatedSprite2D.Frame = GD.RandRange(0, 4);
         if (_animatedSprite2D.Frame == 2) _animatedSprite2D.Frame = 0;
 
@@ -35,7 +32,7 @@ public partial class IronOre : Area2D
 
     private void Damage(int damage)
     {
-        _audio.PlaySound(ChopAudio, GD.RandRange(0.8, 1.1));
+        Audio.Instance.PlaySound(ChopAudio, GD.RandRange(0.8, 1.1));
         Hp -= damage;
         _hpProgressBar.UpdateProgress(Hp, MaxHp);
 
