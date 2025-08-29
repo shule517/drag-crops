@@ -7,6 +7,9 @@ using dragcrops.lib.extensions;
 
 public partial class Field : Node2D
 {
+    public static Field Instance { get; } = SceneTree.Root.GetNode<Field>("/root/Game/Field");
+    private static SceneTree SceneTree => Engine.GetMainLoop() as SceneTree;
+
     [OnReady("WallTileMapLayer")] private TileMapLayer _wallTileMapLayer;
 
     private static readonly Scene<Tree> TreeScene = Scene<Tree>.Load("res://objects/tree/tree.tscn");

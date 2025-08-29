@@ -46,7 +46,7 @@ public partial class Tree : Area2D
     {
         var globalPosition = GlobalPosition + new Vector2(GD.RandRange(-10, 10), -7);
         var item = ItemNode.Instantiate(globalPosition, ItemType.木材);
-        GetParent<Node>().AddChild(item);
+        Field.Instance.AddChild(item);
     }
 
     public override void _InputEvent(Viewport viewport, InputEvent @event, int shapeIdx)
