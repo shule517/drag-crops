@@ -52,10 +52,10 @@ public partial class ItemNode : CharacterBody2D
     {
         if (GameData.Instance.GetTreeGold())
         {
-            Audio.Instance.PlaySound(LevelUpAudio);
+            Audio.PlaySound(LevelUpAudio);
         }
-        // Audio.Instance.PlaySound(GetItemAudio, volumeDb: -10.0f);
-        Audio.Instance.PlaySound(GetItemAudio, GD.RandRange(0.8, 1.1));
+        // Audio.PlaySound(GetItemAudio, volumeDb: -10.0f);
+        Audio.PlaySound(GetItemAudio, GD.RandRange(0.8, 1.1));
         QueueFree();
     }
 

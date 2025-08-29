@@ -32,7 +32,7 @@ public partial class IronOre : Area2D
 
     private void Damage(int damage)
     {
-        Audio.Instance.PlaySound(ChopAudio, GD.RandRange(0.8, 1.1));
+        Audio.PlaySound(ChopAudio, GD.RandRange(0.8, 1.1));
         Hp -= damage;
         _hpProgressBar.UpdateProgress(Hp, MaxHp);
 

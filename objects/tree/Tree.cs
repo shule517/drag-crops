@@ -29,7 +29,7 @@ public partial class Tree : Area2D
 
     private void Damage(int damage)
     {
-        Audio.Instance.PlaySound(ChopTreeAudio, GD.RandRange(0.8, 1.1));
+        Audio.PlaySound(ChopTreeAudio, GD.RandRange(0.8, 1.1));
         Hp -= damage;
         _hpProgressBar.UpdateProgress(Hp, MaxHp);
 
