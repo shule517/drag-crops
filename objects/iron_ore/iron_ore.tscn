@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=4 uid="uid://dicx858mp7wjd"]
+[gd_scene load_steps=15 format=4 uid="uid://dicx858mp7wjd"]
 
 [ext_resource type="Script" uid="uid://by5t2bkcpubw1" path="res://objects/iron_ore/IronOre.cs" id="1_7qxyv"]
 [ext_resource type="AudioStream" uid="uid://g2r2hxq7auvb" path="res://objects/iron_ore/効果音ラボ_石が砕ける.mp3" id="2_32wif"]
 [ext_resource type="Shader" uid="uid://bs03haw20xtye" path="res://shader/outline.gdshader" id="2_uia63"]
+[ext_resource type="PackedScene" uid="uid://c5p88aueb5pmt" path="res://UI/hp_progress_bar/hp_progress_bar.tscn" id="4_ntw6h"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uqj2b"]
 radius = 7.07107
@@ -67,17 +68,6 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7qxyv"]
-bg_color = Color(0.160784, 0.184314, 0.27451, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uia63"]
-bg_color = Color(0.168627, 1, 0, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.203922, 0.0666667, 0.490196, 1)
-
 [node name="IronOre" type="Area2D"]
 script = ExtResource("1_7qxyv")
 ChopAudio = ExtResource("2_32wif")
@@ -108,12 +98,8 @@ metadata/_aseprite_wizard_config_ = {
 }
 metadata/_aseprite_wizard_source_file_hash_ = "4880bdb9501512775d1c1532236ad538"
 
-[node name="HpProgressBar" type="ProgressBar" parent="."]
-offset_left = -6.0
+[node name="HpProgressBar" parent="." instance=ExtResource("4_ntw6h")]
+offset_left = -7.0
 offset_top = 4.0
-offset_right = 6.0
+offset_right = 7.0
 offset_bottom = 7.0
-theme_override_styles/background = SubResource("StyleBoxFlat_7qxyv")
-theme_override_styles/fill = SubResource("StyleBoxFlat_uia63")
-value = 100.0
-show_percentage = false

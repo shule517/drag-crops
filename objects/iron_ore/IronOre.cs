@@ -13,7 +13,7 @@ public partial class IronOre : Area2D
 
     private Audio _audio;
     [OnReady("AnimatedSprite2D")] private AnimatedSprite2D _animatedSprite2D;
-    [OnReady("HpProgressBar")] private ProgressBar _hpProgressBar;
+    [OnReady("HpProgressBar")] private HpProgressBar _hpProgressBar;
 
     public override void _Ready()
     {
@@ -24,20 +24,8 @@ public partial class IronOre : Area2D
         _animatedSprite2D.Frame = GD.RandRange(0, 4);
         if (_animatedSprite2D.Frame == 2) _animatedSprite2D.Frame = 0;
 
-        _hpProgressBar.Visible = false;
-        _hpProgressBar.ZIndex = 100;
-
         MouseEntered += () => SetSharderParamIsSeleted(true);
         MouseExited += () => SetSharderParamIsSeleted(false);
-    }
-
-    public override void _Process(double delta)
-    {
-        if (Hp != MaxHp)
-        {
-            _hpProgressBar.Value = (int)(Hp * 100 / MaxHp);
-            _hpProgressBar.Visible = true;
-        }
     }
 
     private void SetSharderParamIsSeleted(bool isSelected)
@@ -47,25 +35,22 @@ public partial class IronOre : Area2D
 
     private void Damage(int damage)
     {
+        _audio.PlaySound(ChopAudio, GD.RandRange(0.8, 1.1));
         Hp -= damage;
+        _hpProgressBar.UpdateProgress(Hp, MaxHp);
 
         if (Hp <= 0)
         {
             // 壊れた
-            _audio.PlaySound(BreakAudio, GD.RandRange(0.8, 1.1));
             GD.RandRange(3, 10).Times((i) => DropItem());
             QueueFree();
-        }
-        else
-        {
-            _audio.PlaySound(ChopAudio, GD.RandRange(0.8, 1.1));
         }
     }
 
     // TODO: 別クラスに移動させる
     private void DropItem()
     {
-        var globalPosition = new Vector2(GlobalPosition.X + GD.RandRange(-10, 10), GlobalPosition.Y - 7);
+        var globalPosition = GlobalPosition + new Vector2(GD.RandRange(-10, 10), -7);
         var item = ItemNode.Instantiate(globalPosition, ItemType.石);
         GetParent<Node>().AddChild(item);
     }
