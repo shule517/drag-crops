@@ -11,8 +11,8 @@ public partial class IronOre : Area2D
     [Export] public AudioStream ChopAudio;
     [Export] public AudioStream BreakAudio;
 
-    [OnReady("AnimatedSprite2D")] private AnimatedSprite2D _animatedSprite2D;
-    [OnReady("HpProgressBar")] private HpProgressBar _hpProgressBar;
+    [Node("AnimatedSprite2D")] private AnimatedSprite2D _animatedSprite2D = null!;
+    [Node("HpProgressBar")] private HpProgressBar _hpProgressBar = null!;
 
     public override void _Ready()
     {

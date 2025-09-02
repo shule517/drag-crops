@@ -10,7 +10,7 @@ public partial class Field : Node2D
     public static Field Instance { get; } = SceneTree.Root.GetNode<Field>("/root/Game/Field");
     private static SceneTree SceneTree => Engine.GetMainLoop() as SceneTree;
 
-    [OnReady("WallTileMapLayer")] private TileMapLayer _wallTileMapLayer;
+    [Node("WallTileMapLayer")] private TileMapLayer _wallTileMapLayer = null!;
 
     private static readonly Scene<Tree> TreeScene = Scene<Tree>.Load("res://objects/tree/tree.tscn");
     private static readonly Scene<IronOre> IronOreScene = Scene<IronOre>.Load("res://objects/iron_ore/iron_ore.tscn");

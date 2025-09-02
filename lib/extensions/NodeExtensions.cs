@@ -12,11 +12,21 @@ public static class NodeExtensions
         var fields = me.GetType().GetFields(BindingFlags.NonPublic | BindingFlags.Instance);
         foreach (var field in fields)
         {
-            var attribute = field.GetCustomAttribute<OnReadyAttribute>();
-            if (attribute != null)
+            var attribute = field.GetCustomAttribute<NodeAttribute>();
+            if (attribute == null)
             {
-                var node = me.GetNode<Node>(attribute.Path);
+                // TODO: これで大丈夫？
+                throw new InvalidOperationException($"attributeが取得できない");
+            }
 
+            if (attribute.Path == null)
+            {
+                // TODO: プロパティ名と一致するものを取得
+            }
+            else
+            {
+                // 指定されたパスのNodeを取得する
+                var node = me.GetNode<Node>(attribute.Path);
                 if (node == null)
                     throw new InvalidOperationException($"Nodeが見つかりませんでした: {attribute.Path}");
 

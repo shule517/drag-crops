@@ -11,7 +11,7 @@ public partial class ItemNode : CharacterBody2D
     [Export] public AudioStream GetItemAudio;
     [Export] public AudioStream LevelUpAudio;
 
-    [OnReady("Area2D")] private Area2D _area2D;
+    [Node("Area2D")] private Area2D _area2D = null!;
 
     private float _groundY;
     private float _bouncePower = -200; // 最初のバウンド力

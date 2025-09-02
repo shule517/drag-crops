@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Godot;
 
+// TODO: staticクラスで良いのでは？
 public partial class GameData : Node
 {
     public static GameData Instance => SceneTree.Root.GetNode<GameData>("/root/GameData");
