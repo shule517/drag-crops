@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using dragcrops.lib.extensions;
 using Godot;
 
 // TODO: staticクラスで良いのでは？
@@ -12,6 +13,11 @@ public partial class GameData : Node
     // public long TreeGold { get { return _goldTable[Level]; }}
     public long TreeGold { get; private set; } = 5;
     public int Exp { get; private set; } = 0;
+
+    public override void _Ready()
+    {
+        this.AutoLoad();
+    }
 
     public string GetGoldText()
     {

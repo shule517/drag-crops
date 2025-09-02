@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Reflection;
 using dragcrops.lib.attributes;
 using Godot;
@@ -7,6 +8,21 @@ namespace dragcrops.lib.extensions;
 
 public static class NodeExtensions
 {
+    public static void AutoLoad(this Node me)
+    {
+        var assembly = Assembly.GetExecutingAssembly();
+        var autoLoadClasses = assembly.GetTypes().Where(t => t.GetCustomAttribute<AutoLoadAttribute>() != null);
+        foreach (var autoLoadClass in autoLoadClasses)
+        {
+            var instance = Activator.CreateInstance(autoLoadClass) as Node;
+            if (instance != null)
+                me.CallDeferred("add_child", instance);
+
+            // TODO: AutoLoadしたインスタンスを取得できるようにする
+            GD.Print(autoLoadClass);
+        }
+    }
+
     public static void BindOnReadyNodes(this Node me)
     {
         var fields = me.GetType().GetFields(BindingFlags.NonPublic | BindingFlags.Instance);
