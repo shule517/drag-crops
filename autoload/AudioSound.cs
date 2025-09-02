@@ -4,6 +4,18 @@ using Godot;
 [AutoLoad]
 public partial class AudioSound : Node
 {
+    // TODO: ↓をするとAudioSoundを勝手に取得してくれるイメージ。Treeから型で検索する
+    // TODO: Provide()をするとTreeを辿らずに、明示的に参照を指定できる
+    // [Dependency] AudioSound AudioSound { get; } = null!;
+    // AudioSound.PlaySound(audioStream)
+
+    // TODO: staticクラスからも取りたいよね
+    // AudioSound.Instance.PlaySound(audioStream)
+    // private static AudioSound Instance { get; } = SceneTree!.Root.GetNode<AudioSound>("/root/AutoLoad/AudioSound");
+    // private static SceneTree? SceneTree => Engine.GetMainLoop() as SceneTree;
+
+    // TODO: ↑どっちもTreeから検索してるから一緒では？
+
     // public static void PlaySound(AudioStream audioStream, double pitchScale = 1.0f, float volumeDb = 0.0f)
     // {
     //     var audioPlayer = new AudioStreamPlayer2D();
