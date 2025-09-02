@@ -13,14 +13,11 @@ public partial class CustomScriptsPlugin : EditorPlugin
         foreach (var type in assembly.GetTypes())
         {
             var attr = type.GetCustomAttribute<CustomScriptAttribute>();
-            if (attr != null)
+            if (attr != null && type.FullName != null)
             {
                 var path = FindScriptPath(type.FullName);
                 var script = GD.Load<Script>(path); 
-                Texture2D icon = null;
-                if (!string.IsNullOrEmpty(attr.IconPath))
-                    icon = GD.Load<Texture2D>(attr.IconPath);
-
+                Texture2D icon = GD.Load<Texture2D>(attr.IconPath);
                 GD.Print($"AddCustomType: {type.FullName}");
                 AddCustomType(type.Name, attr.BaseType, script, icon);
             }
@@ -37,7 +34,7 @@ public partial class CustomScriptsPlugin : EditorPlugin
                 return ProjectSettings.LocalizePath(file);
             }
         }
-        return null;
+        throw new FileNotFoundException($"Script not found: {typeName}");
     }
 
     public override void _ExitTree()

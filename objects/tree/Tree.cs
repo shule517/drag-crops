@@ -8,8 +8,8 @@ public partial class Tree : Area2D
 {
     [Export] public int MaxHp { get; set; } = 10;
     [Export] public int Hp { get; set; } = 10;
-    [Export] public AudioStream ChopTreeAudio;
-    [Export] public AudioStream FallTreeAudio;
+    [Export] public AudioStream ChopTreeAudio = null!;
+    [Export] public AudioStream FallTreeAudio = null!;
 
     [Node("AnimatedSprite2D")] private AnimatedSprite2D _animatedSprite2D = null!;
     [Node("HpProgressBar")] private HpProgressBar _hpProgressBar = null!;

@@ -4,8 +4,8 @@ using Godot;
 // TODO: staticクラスで良いのでは？
 public partial class GameData : Node
 {
-    public static GameData Instance => SceneTree.Root.GetNode<GameData>("/root/GameData");
-    private static SceneTree SceneTree => Engine.GetMainLoop() as SceneTree;
+    public static GameData Instance => SceneTree!.Root.GetNode<GameData>("/root/GameData");
+    private static SceneTree? SceneTree => Engine.GetMainLoop() as SceneTree;
 
     public long Gold { get; private set; } = 0;
     public int Level { get; private set; } = 1;

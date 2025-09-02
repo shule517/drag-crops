@@ -15,8 +15,7 @@ public static class NodeExtensions
             var attribute = field.GetCustomAttribute<NodeAttribute>();
             if (attribute == null)
             {
-                // TODO: これで大丈夫？
-                throw new InvalidOperationException($"attributeが取得できない");
+                continue;
             }
 
             if (attribute.Path == null)

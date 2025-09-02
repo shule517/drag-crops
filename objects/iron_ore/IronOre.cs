@@ -8,8 +8,8 @@ public partial class IronOre : Area2D
 {
     [Export] public int MaxHp { get; set; } = 10;
     [Export] public int Hp { get; set; } = 10;
-    [Export] public AudioStream ChopAudio;
-    [Export] public AudioStream BreakAudio;
+    [Export] public AudioStream ChopAudio = null!;
+    [Export] public AudioStream BreakAudio = null!;
 
     [Node("AnimatedSprite2D")] private AnimatedSprite2D _animatedSprite2D = null!;
     [Node("HpProgressBar")] private HpProgressBar _hpProgressBar = null!;
