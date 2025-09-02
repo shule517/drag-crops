@@ -9,12 +9,12 @@ public partial class Audio : Node
 
     // TODO: ↓をするとAudioSoundを勝手に取得してくれるイメージ。Treeから型で検索する
     // TODO: Provide()をするとTreeを辿らずに、明示的に参照を指定できる
-    // [Dependency] AudioSound AudioSound { get; } = null!;
-    // AudioSound.PlaySound(audioStream)
+    // [Dependency] Audio Audio { get; } = null!;
+    // Audio.PlaySound(audioStream)
 
     // TODO: staticクラスからも取りたいよね
-    // AudioSound.Instance.PlaySound(audioStream)
-    // private static AudioSound Instance { get; } = SceneTree!.Root.GetNode<AudioSound>("/root/AutoLoad/AudioSound");
+    // Audio.Instance.PlaySound(audioStream)
+    // private static Audio Instance { get; } = SceneTree!.Root.GetNode<Audio>("/root/AutoLoad/Audio");
     // private static SceneTree? SceneTree => Engine.GetMainLoop() as SceneTree;
 
     // TODO: ↑どっちもTreeから検索してるから一緒では？
