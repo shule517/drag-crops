@@ -16,7 +16,10 @@ public static class NodeExtensions
         {
             var instance = Activator.CreateInstance(autoLoadClass) as Node;
             if (instance != null)
+            {
+                instance.Name = autoLoadClass.Name;
                 me.CallDeferred("add_child", instance);
+            }
 
             // TODO: AutoLoadしたインスタンスを取得できるようにする
             GD.Print(autoLoadClass);

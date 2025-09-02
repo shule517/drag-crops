@@ -14,11 +14,6 @@ public partial class GameData : Node
     public long TreeGold { get; private set; } = 5;
     public int Exp { get; private set; } = 0;
 
-    public override void _Ready()
-    {
-        this.AutoLoad();
-    }
-
     public string GetGoldText()
     {
         if (Gold > 100000000)
