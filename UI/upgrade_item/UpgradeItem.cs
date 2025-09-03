@@ -9,7 +9,7 @@ public partial class UpgradeItem : HBoxContainer
 
     public override void _Ready()
     {
-        this.BindOnReadyNodes();
+        this.BindNodes();
         _button.ButtonDown += () => GameData.Instance.LevelUp();
     }
 

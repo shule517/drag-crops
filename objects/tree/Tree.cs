@@ -14,9 +14,11 @@ public partial class Tree : Area2D
     [Node("AnimatedSprite2D")] private AnimatedSprite2D _animatedSprite2D = null!;
     [Node("HpProgressBar")] private HpProgressBar _hpProgressBar = null!;
 
+    [Inject] private Audio _audio = null!;
+
     public override void _Ready()
     {
-        this.BindOnReadyNodes();
+        this.BindNodes();
 
         MouseEntered += () => SetSharderParamIsSeleted(true);
         MouseExited += () => SetSharderParamIsSeleted(false);
@@ -29,7 +31,8 @@ public partial class Tree : Area2D
 
     private void Damage(int damage)
     {
-        Audio.PlaySound(ChopTreeAudio, GD.RandRange(0.8, 1.1));
+        _audio.Play(ChopTreeAudio, GD.RandRange(0.8, 1.1));
+        // _audio.PlaySound(ChopTreeAudio, GD.RandRange(0.8, 1.1));
         Hp -= damage;
         _hpProgressBar.UpdateProgress(Hp, MaxHp);
 

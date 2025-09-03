@@ -12,7 +12,7 @@ public partial class Player : Node2D
 
     public override void _Ready()
     {
-        this.BindOnReadyNodes();
+        this.BindNodes();
     }
 
     public override void _Process(double delta)

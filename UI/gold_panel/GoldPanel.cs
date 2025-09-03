@@ -8,7 +8,7 @@ public partial class GoldPanel : Panel
 
     public override void _Ready()
     {
-        this.BindOnReadyNodes();
+        this.BindNodes();
     }
 
     public override void _Process(double delta)

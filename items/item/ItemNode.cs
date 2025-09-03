@@ -29,7 +29,7 @@ public partial class ItemNode : CharacterBody2D
 
     public override void _Ready()
     {
-        this.BindOnReadyNodes();
+        this.BindNodes();
 
         GD.Print(ItemType);
 

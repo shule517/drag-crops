@@ -18,7 +18,7 @@ public partial class Field : Node2D
 
     public override void _Ready()
     {
-        this.BindOnReadyNodes();
+        this.BindNodes();
         
         // 木の追加
         30.Times((x) =>

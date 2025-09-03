@@ -16,7 +16,7 @@ public partial class IronOre : Area2D
 
     public override void _Ready()
     {
-        this.BindOnReadyNodes();
+        this.BindNodes();
 
         _animatedSprite2D.Frame = GD.RandRange(0, 4);
         if (_animatedSprite2D.Frame == 2) _animatedSprite2D.Frame = 0;
