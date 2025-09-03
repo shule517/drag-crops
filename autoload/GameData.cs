@@ -1,11 +1,11 @@
 using System.Collections.Generic;
-using dragcrops.lib.extensions;
+using dragcrops.lib.attributes;
 using Godot;
 
-// TODO: staticクラスで良いのでは？
+[AutoLoad]
 public partial class GameData : Node
 {
-    public static GameData Instance => SceneTree.Root.GetNode<GameData>("/root/GameData");
+    public static GameData Instance => SceneTree.Root.GetNode<GameData>("/root/AutoLoad/GameData");
     private static SceneTree SceneTree => (SceneTree)Engine.GetMainLoop();
 
     public long Gold { get; private set; } = 0;
