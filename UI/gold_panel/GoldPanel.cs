@@ -4,7 +4,7 @@ using dragcrops.lib.extensions;
 
 public partial class GoldPanel : Panel
 {
-    [Node("Label")] private Label _label = null!;
+    [Node] private Label _label = null!;
 
     public override void _Ready()
     {

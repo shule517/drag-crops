@@ -7,7 +7,7 @@ public partial class Player : Node2D
     private bool _isDragging = false;
     private Vector2 _dragStartPlayerPosition = Vector2.Zero;
     private Vector2 _dragStartMousePosition = Vector2.Zero;
-    [Node("Camera2D")] private Camera2D _camera2D = null!;
+    [Node] private Camera2D _camera2D = null!;
     private Vector2 _lastMousePosition = Vector2.Zero;
 
     public override void _Ready()

@@ -11,7 +11,7 @@ public partial class Tree : Area2D
     [Export] public AudioStream ChopTreeAudio = null!;
     [Export] public AudioStream FallTreeAudio = null!;
 
-    [Node("AnimatedSprite2D")] private AnimatedSprite2D _animatedSprite2D = null!;
+    [Node] private AnimatedSprite2D _animatedSprite2D = null!;
     [Node] private HpProgressBar _hpProgressBar = null!;
 
     [Inject] private Audio _audio = null!;

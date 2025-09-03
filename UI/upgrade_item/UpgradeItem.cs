@@ -4,8 +4,8 @@ using dragcrops.lib.extensions;
 
 public partial class UpgradeItem : HBoxContainer
 {
-    [Node("Label")] private Label _label = null!;
-    [Node("Button")] private Button _button = null!;
+    [Node] private Label _label = null!;
+    [Node] private Button _button = null!;
 
     public override void _Ready()
     {
