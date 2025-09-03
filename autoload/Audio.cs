@@ -4,8 +4,8 @@ using Godot;
 [AutoLoad]
 public partial class Audio : Node
 {
-    private static Audio Instance { get; } = SceneTree!.Root.GetNode<Audio>("/root/AutoLoad/Audio");
-    private static SceneTree? SceneTree => Engine.GetMainLoop() as SceneTree;
+    private static Audio Instance { get; } = SceneTree.Root.GetNode<Audio>("/root/AutoLoad/Audio");
+    private static SceneTree SceneTree => (SceneTree)Engine.GetMainLoop();
 
     // TODO: ↓をするとAudioSoundを勝手に取得してくれるイメージ。Treeから型で検索する
     // TODO: Provide()をするとTreeを辿らずに、明示的に参照を指定できる
@@ -14,8 +14,8 @@ public partial class Audio : Node
 
     // TODO: staticクラスからも取りたいよね
     // Audio.Instance.PlaySound(audioStream)
-    // private static Audio Instance { get; } = SceneTree!.Root.GetNode<Audio>("/root/AutoLoad/Audio");
-    // private static SceneTree? SceneTree => Engine.GetMainLoop() as SceneTree;
+    // private static Audio Instance { get; } = SceneTree.Root.GetNode<Audio>("/root/AutoLoad/Audio");
+    // private static SceneTree SceneTree => (SceneTree)Engine.GetMainLoop();
 
     // TODO: ↑どっちもTreeから検索してるから一緒では？
 
