@@ -12,6 +12,7 @@ public partial class ItemNode : CharacterBody2D
     [Export] public AudioStream LevelUpAudio = null!;
 
     [Node] private Area2D _area2D = null!;
+    [Inject] private Audio _audio = null!;
 
     private float _groundY;
     private float _bouncePower = -200; // 最初のバウンド力
@@ -52,10 +53,10 @@ public partial class ItemNode : CharacterBody2D
     {
         if (GameData.Instance.GetTreeGold())
         {
-            Audio.PlaySound(LevelUpAudio);
+            _audio.Play(LevelUpAudio);
         }
-        // Audio.PlaySound(GetItemAudio, volumeDb: -10.0f);
-        Audio.PlaySound(GetItemAudio, GD.RandRange(0.8, 1.1));
+        // _audio.PlaySound(GetItemAudio, volumeDb: -10.0f);
+        _audio.Play(GetItemAudio, GD.RandRange(0.8, 1.1));
         QueueFree();
     }
 

@@ -18,10 +18,9 @@ public static class NodeExtensions
             if (instance != null)
             {
                 instance.Name = autoLoadClass.Name;
-                me.CallDeferred("add_child", instance);
+                me.AddChild(instance);
             }
-
-            // TODO: AutoLoadしたインスタンスを取得できるようにする
+            // AutoLoadしたNodeは[Inject]で取得できる
             GD.Print($"autoLoadClass: {autoLoadClass}");
         }
     }

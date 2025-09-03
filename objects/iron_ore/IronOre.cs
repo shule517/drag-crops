@@ -13,6 +13,7 @@ public partial class IronOre : Area2D
 
     [Node] private AnimatedSprite2D _animatedSprite2D = null!;
     [Node] private HpProgressBar _hpProgressBar = null!;
+    [Inject] private Audio _audio = null!;
 
     public override void _Ready()
     {
@@ -32,7 +33,7 @@ public partial class IronOre : Area2D
 
     private void Damage(int damage)
     {
-        Audio.PlaySound(ChopAudio, GD.RandRange(0.8, 1.1));
+        _audio.Play(ChopAudio, GD.RandRange(0.8, 1.1));
         Hp -= damage;
         _hpProgressBar.UpdateProgress(Hp, MaxHp);
 
