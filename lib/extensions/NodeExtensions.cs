@@ -43,7 +43,12 @@ public static class NodeExtensions
 
             if (attribute.Path == null)
             {
-                // TODO: プロパティ名と一致するものを取得
+                // 変数名と一致するNodeを取得
+                // _hpProgressBar => HpProgressBarを取得する
+                var fieldName = field.Name.TrimStart('_');
+                var path = $"{char.ToUpper(fieldName[0])}{fieldName.Substring(1)}";
+                var node = me.GetNode<Node>(path);
+                field.SetValue(me, node);
             }
             else
             {
