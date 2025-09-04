@@ -14,8 +14,8 @@ public partial class Field : Node2D
 
     [Node] private TileMapLayer _wallTileMapLayer = null!;
 
-    private static readonly Scene<dragcrops.objects.tree.Tree> TreeScene = Scene<dragcrops.objects.tree.Tree>.Load("res://objects/tree/tree.tscn");
-    private static readonly Scene<IronOre> IronOreScene = Scene<IronOre>.Load("res://objects/iron_ore/iron_ore.tscn");
+    private static readonly Scene<dragcrops.objects.tree.Tree> TreeScene = new("res://objects/tree/tree.tscn");
+    private static readonly Scene<IronOre> IronOreScene = new("res://objects/iron_ore/iron_ore.tscn");
     private readonly List<Vector2> _objectPositions = [];
 
     public override void _Ready()

@@ -2,24 +2,25 @@ namespace dragcrops.lib;
 using System;
 using Godot;
 
-public class Scene<TNode>(PackedScene packedScene) where TNode : Node2D
+public class Scene<TNode> where TNode : Node2D
 {
+    private PackedScene _packedScene;
+
     // シーンの読み込み
-    public static Scene<TNode> Load(string scenePath)
+    public Scene(string scenePath)
     {
-        PackedScene packedScene = GD.Load<PackedScene>(scenePath);
+        var packedScene = GD.Load<PackedScene>(scenePath);
         if (packedScene == null)
         {
             // TODO: 起動時にエラーを投げたい
             throw new InvalidOperationException($"シーンが見つかりませんでした: {scenePath}");
         }
-
-        return new Scene<TNode>(packedScene);
+        _packedScene = packedScene;
     }
 
     // シーンを生成する
     public TNode Instantiate()
     {
-        return packedScene.Instantiate<TNode>();
+        return _packedScene.Instantiate<TNode>();
     }
 }

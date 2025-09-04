@@ -18,7 +18,7 @@ public partial class ItemNode : CharacterBody2D
     private float _groundY;
     private float _bouncePower = -200; // 最初のバウンド力
     private bool _isDroped;
-    private static Scene<ItemNode> _itemNodeScene = Scene<ItemNode>.Load("res://items/item/item_node.tscn");
+    private static Scene<ItemNode> _itemNodeScene = new("res://items/item/item_node.tscn");
 
     // アイテムの生成
     public static ItemNode Instantiate(Vector2 globalPosition, ItemType itemType)
