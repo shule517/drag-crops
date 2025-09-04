@@ -1,3 +1,4 @@
+namespace dragcrops.autoload;
 using dragcrops.lib.extensions;
 using Godot;
 

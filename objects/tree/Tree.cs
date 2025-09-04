@@ -1,8 +1,12 @@
-using dragcrops.extenstions;
-using dragcrops.items.item;
-using dragcrops.lib.attributes;
-using dragcrops.lib.extensions;
+namespace dragcrops.objects.tree;
+using autoload;
+using extenstions;
+using items.item;
+using lib.attributes;
+using lib.extensions;
 using Godot;
+using fields;
+using UI.hp_progress_bar;
 
 public partial class Tree : Area2D
 {

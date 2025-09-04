@@ -1,10 +1,11 @@
-using dragcrops.lib.attributes;
-using dragcrops.lib.extensions;
+namespace dragcrops.player;
+using lib.attributes;
+using lib.extensions;
 using Godot;
 
 public partial class Player : Node2D
 {
-    private bool _isDragging = false;
+    private bool _isDragging;
     private Vector2 _dragStartPlayerPosition = Vector2.Zero;
     private Vector2 _dragStartMousePosition = Vector2.Zero;
     [Node] private Camera2D _camera2D = null!;
@@ -61,7 +62,7 @@ public partial class Player : Node2D
                 _dragStartPlayerPosition = Position;
                 _lastMousePosition = GetLocalMousePosition();
             }
-        
+
             if (!keyEvent.Pressed)
             {
                 _isDragging = false;
@@ -79,12 +80,12 @@ public partial class Player : Node2D
                 _dragStartPlayerPosition = Position;
                 _lastMousePosition = GetLocalMousePosition();
             }
-        
+
             if (!mouseEvent.Pressed)
             {
                 _isDragging = false;
             }
-            
+
             if (mouseEvent.ButtonIndex == MouseButton.WheelUp && mouseEvent.Pressed)
             {
                 Position += new Vector2(0, -10);

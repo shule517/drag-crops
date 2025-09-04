@@ -1,9 +1,11 @@
+namespace dragcrops.fields;
 using Godot;
 using System.Collections.Generic;
-using dragcrops.extenstions;
-using dragcrops.lib;
-using dragcrops.lib.attributes;
-using dragcrops.lib.extensions;
+using extenstions;
+using lib;
+using lib.attributes;
+using lib.extensions;
+using objects.iron_ore;
 
 public partial class Field : Node2D
 {
@@ -12,14 +14,14 @@ public partial class Field : Node2D
 
     [Node] private TileMapLayer _wallTileMapLayer = null!;
 
-    private static readonly Scene<Tree> TreeScene = Scene<Tree>.Load("res://objects/tree/tree.tscn");
+    private static readonly Scene<dragcrops.objects.tree.Tree> TreeScene = Scene<dragcrops.objects.tree.Tree>.Load("res://objects/tree/tree.tscn");
     private static readonly Scene<IronOre> IronOreScene = Scene<IronOre>.Load("res://objects/iron_ore/iron_ore.tscn");
     private readonly List<Vector2> _objectPositions = [];
 
     public override void _Ready()
     {
         this.BindNodes();
-        
+
         // 木の追加
         30.Times((x) =>
         {

@@ -1,7 +1,8 @@
 #if TOOLS
-using Godot;
+namespace Godot;
 using System.IO;
 using System.Reflection;
+using dragcrops.addons.CustomScripts;
 
 [Tool]
 public partial class CustomScriptsPlugin : EditorPlugin
@@ -9,22 +10,22 @@ public partial class CustomScriptsPlugin : EditorPlugin
     public override void _EnterTree()
     {
         // アセンブリを取得
-        var assembly = Assembly.GetExecutingAssembly(); 
+        var assembly = Assembly.GetExecutingAssembly();
         foreach (var type in assembly.GetTypes())
         {
             var attr = type.GetCustomAttribute<CustomScriptAttribute>();
             if (attr != null && type.FullName != null)
             {
                 var path = FindScriptPath(type.FullName);
-                var script = GD.Load<Script>(path); 
-                Texture2D icon = GD.Load<Texture2D>(attr.IconPath);
+                var script = GD.Load<Script>(path);
+                var icon = GD.Load<Texture2D>(attr.IconPath);
                 GD.Print($"AddCustomType: {type.FullName}");
                 AddCustomType(type.Name, attr.BaseType, script, icon);
             }
         }
     }
 
-    string FindScriptPath(string typeName)
+    private static string FindScriptPath(string typeName)
     {
         foreach (var file in Directory.GetFiles(ProjectSettings.GlobalizePath("res://"), "*.cs", SearchOption.AllDirectories))
         {

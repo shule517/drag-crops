@@ -1,4 +1,4 @@
-using dragcrops.items.item;
+namespace dragcrops.items.item;
 
 public class Item(ItemType itemType)
 {

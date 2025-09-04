@@ -1,5 +1,6 @@
+namespace dragcrops.autoload;
 using System.Collections.Generic;
-using dragcrops.lib.attributes;
+using lib.attributes;
 using Godot;
 
 [AutoLoad]
@@ -8,11 +9,11 @@ public partial class GameData : Node
     public static GameData Instance => SceneTree.Root.GetNode<GameData>("/root/AutoLoad/GameData");
     private static SceneTree SceneTree => (SceneTree)Engine.GetMainLoop();
 
-    public long Gold { get; private set; } = 0;
+    public long Gold { get; private set; }
     public int Level { get; private set; } = 1;
     // public long TreeGold { get { return _goldTable[Level]; }}
     public long TreeGold { get; private set; } = 5;
-    public int Exp { get; private set; } = 0;
+    public int Exp { get; private set; }
 
     public string GetGoldText()
     {

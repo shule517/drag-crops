@@ -1,10 +1,10 @@
+namespace dragcrops.lib.extensions;
 using System;
 using System.Linq;
 using System.Reflection;
-using dragcrops.lib.attributes;
+using attributes;
 using Godot;
-
-namespace dragcrops.lib.extensions;
+using autoload;
 
 public static class NodeExtensions
 {

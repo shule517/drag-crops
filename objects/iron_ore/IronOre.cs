@@ -1,8 +1,12 @@
+namespace dragcrops.objects.iron_ore;
+using autoload;
 using Godot;
-using dragcrops.extenstions;
-using dragcrops.items.item;
-using dragcrops.lib.attributes;
-using dragcrops.lib.extensions;
+using extenstions;
+using fields;
+using items.item;
+using lib.attributes;
+using lib.extensions;
+using UI.hp_progress_bar;
 
 public partial class IronOre : Area2D
 {

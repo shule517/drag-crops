@@ -1,7 +1,6 @@
+namespace dragcrops.lib;
 using System;
 using Godot;
-
-namespace dragcrops.lib;
 
 public class Scene<TNode>(PackedScene packedScene) where TNode : Node2D
 {

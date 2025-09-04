@@ -1,9 +1,10 @@
+namespace dragcrops.items.item;
 using Godot;
 using System;
-using dragcrops.items.item;
-using dragcrops.lib;
-using dragcrops.lib.attributes;
-using dragcrops.lib.extensions;
+using lib;
+using lib.attributes;
+using lib.extensions;
+using autoload;
 
 public partial class ItemNode : CharacterBody2D
 {
@@ -16,7 +17,7 @@ public partial class ItemNode : CharacterBody2D
 
     private float _groundY;
     private float _bouncePower = -200; // 最初のバウンド力
-    private bool _isDroped = false;
+    private bool _isDroped;
     private static Scene<ItemNode> _itemNodeScene = Scene<ItemNode>.Load("res://items/item/item_node.tscn");
 
     // アイテムの生成

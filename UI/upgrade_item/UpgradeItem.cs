@@ -1,6 +1,8 @@
+namespace dragcrops.UI.upgrade_item;
+using autoload;
 using Godot;
-using dragcrops.lib.attributes;
-using dragcrops.lib.extensions;
+using lib.attributes;
+using lib.extensions;
 
 public partial class UpgradeItem : HBoxContainer
 {
