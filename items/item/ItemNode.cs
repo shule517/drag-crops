@@ -17,8 +17,8 @@ public partial class ItemNode : CharacterBody2D
 
     private float _groundY;
     private float _bouncePower = -200; // 最初のバウンド力
-    private bool _isDroped;
-    private static Scene<ItemNode> _itemNodeScene = new("res://items/item/item_node.tscn");
+    private bool _isDropped;
+    private static readonly Scene<ItemNode> _itemNodeScene = new("res://items/item/item_node.tscn");
 
     // アイテムの生成
     public static ItemNode Instantiate(Vector2 globalPosition, ItemType itemType)
@@ -43,7 +43,7 @@ public partial class ItemNode : CharacterBody2D
         // マウスホバーでアイテムGET
         _area2D.MouseEntered += () =>
         {
-            if (_isDroped)
+            if (_isDropped)
             {
                 GetItem();
             }
@@ -74,7 +74,7 @@ public partial class ItemNode : CharacterBody2D
             if (Math.Abs(Velocity.Y) < 100)
             {
                 Velocity = Velocity with { X = 0, Y = 0 };
-                _isDroped = true;
+                _isDropped = true;
 
                 // // アイテムが落ちた時に自動取得
                 // GetItem();
