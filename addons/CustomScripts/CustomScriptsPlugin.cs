@@ -1,5 +1,6 @@
 #if TOOLS
 namespace Godot;
+
 using System.IO;
 using System.Reflection;
 using dragcrops.addons.CustomScripts;
@@ -27,7 +28,8 @@ public partial class CustomScriptsPlugin : EditorPlugin
 
     private static string FindScriptPath(string typeName)
     {
-        foreach (var file in Directory.GetFiles(ProjectSettings.GlobalizePath("res://"), "*.cs", SearchOption.AllDirectories))
+        foreach (var file in Directory.GetFiles(ProjectSettings.GlobalizePath("res://"), "*.cs",
+                     SearchOption.AllDirectories))
         {
             if (Path.GetFileNameWithoutExtension(file) == typeName)
             {
@@ -35,6 +37,7 @@ public partial class CustomScriptsPlugin : EditorPlugin
                 return ProjectSettings.LocalizePath(file);
             }
         }
+
         throw new FileNotFoundException($"Script not found: {typeName}");
     }
 

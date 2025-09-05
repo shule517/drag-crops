@@ -1,4 +1,5 @@
 namespace dragcrops.lib;
+
 using System;
 using Godot;
 
@@ -15,6 +16,7 @@ public class Scene<TNode> where TNode : Node2D
             // TODO: 起動時にエラーを投げたい
             throw new InvalidOperationException($"シーンが見つかりませんでした: {scenePath}");
         }
+
         _packedScene = packedScene;
     }
 

@@ -1,4 +1,5 @@
 namespace dragcrops.player;
+
 using lib.attributes;
 using lib.extensions;
 using Godot;

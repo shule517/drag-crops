@@ -1,4 +1,5 @@
 namespace dragcrops.fields;
+
 using Godot;
 using System.Collections.Generic;
 using extenstions;
@@ -55,7 +56,8 @@ public partial class Field : Node2D
         _objectPositions.Add(new Vector2(x, y));
         var node = scene.Instantiate();
         node.GlobalPosition = new Vector2(x, y);
-        CallDeferred("add_child", node);;
+        CallDeferred("add_child", node);
+        ;
     }
 
     public override void _Input(InputEvent @event)

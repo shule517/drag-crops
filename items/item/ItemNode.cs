@@ -1,4 +1,5 @@
 namespace dragcrops.items.item;
+
 using Godot;
 using System;
 using lib;
@@ -56,6 +57,7 @@ public partial class ItemNode : CharacterBody2D
         {
             _audio.Play(LevelUpAudio);
         }
+
         // _audio.PlaySound(GetItemAudio, volumeDb: -10.0f);
         _audio.Play(GetItemAudio, GD.RandRange(0.8, 1.1));
         QueueFree();
@@ -80,6 +82,7 @@ public partial class ItemNode : CharacterBody2D
                 // GetItem();
             }
         }
+
         MoveAndSlide();
     }
 }

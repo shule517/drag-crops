@@ -1,4 +1,5 @@
 namespace dragcrops.UI.upgrade_item;
+
 using autoload;
 using Godot;
 using lib.attributes;

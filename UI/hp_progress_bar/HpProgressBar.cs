@@ -1,4 +1,5 @@
 namespace dragcrops.UI.hp_progress_bar;
+
 using addons.CustomScripts;
 using Godot;
 

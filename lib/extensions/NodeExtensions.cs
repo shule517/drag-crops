@@ -1,4 +1,5 @@
 namespace dragcrops.lib.extensions;
+
 using System;
 using System.Linq;
 using System.Reflection;
@@ -20,6 +21,7 @@ public static class NodeExtensions
                 instance.Name = autoLoadClass.Name;
                 me.AddChild(instance);
             }
+
             // AutoLoadしたNodeは[Inject]で取得できる
             GD.Print($"autoLoadClass: {autoLoadClass}");
         }

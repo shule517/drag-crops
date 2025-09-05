@@ -1,4 +1,5 @@
 namespace dragcrops.UI.gold_panel;
+
 using autoload;
 using Godot;
 using lib.attributes;

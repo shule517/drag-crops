@@ -1,4 +1,5 @@
 namespace dragcrops.addons.CustomScripts;
+
 using System;
 
 [AttributeUsage(AttributeTargets.Class, Inherited = false)]
