@@ -14,6 +14,7 @@ public partial class ItemNode : CharacterBody2D
     [Export] public AudioStream LevelUpAudio = null!;
 
     [Node] private Area2D _area2D = null!;
+    [Node] private AnimatedSprite2D _animatedSprite2D = null!;
     [Inject] private Audio _audio = null!;
 
     private float _groundY;
@@ -35,6 +36,11 @@ public partial class ItemNode : CharacterBody2D
         this.BindNodes();
 
         GD.Print(ItemType);
+
+        if (ItemType == ItemType.石)
+        {
+            _animatedSprite2D.Frame = 7;
+        }
 
         _groundY = Position.Y;
 
